@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server For Uchat",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "fadhilsaheer",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.1.2",
+    "uuid": "^8.3.2"
+  }
+}
