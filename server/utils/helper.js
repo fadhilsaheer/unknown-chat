@@ -36,7 +36,7 @@ room = [
 
 // room functions
 
-module.export = {
+module.exports = {
 
     // rooms
 
@@ -60,7 +60,7 @@ module.export = {
 
     joinRoom: (roomId, userData)=>{
         return new Promise((resolve, reject)=>{
-            getOneRoom(roomId).then((room)=>{
+            this.getOneRoom(roomId).then((room)=>{
                 room.users.push(userData);
                 resolve(room);
             }).catch(()=>{
@@ -89,7 +89,7 @@ module.export = {
 
 
     clearChat: (roomId, userData)=>{
-        getOneRoom(roomId).then((room)=>{
+        this.getOneRoom(roomId).then((room)=>{
             if(room.host == userData){
                 room.chats = [];
             }
@@ -97,7 +97,7 @@ module.export = {
     },
 
     newMessage: (roomId, data)=>{
-        getOneRoom(roomId).then((room)=>{
+        this.getOneRoom(roomId).then((room)=>{
             room.chats.push(data);
         })
     }
