@@ -1,3 +1,6 @@
+#firebase 
+firebase
+
 node_modules
 /.pnp
 .pnp.js
@@ -8,8 +11,6 @@ node_modules
 # production
 /build
 
-#firebase 
-view/src/utils/firebase.js
 
 # misc
 .DS_Store
