@@ -1,16 +1,40 @@
-import React, { useEffect } from "react";
-import io from "socket.io-client";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
-const server = "http://127.0.0.1:8080";
+
+// components
+
+import Landing from "./components/landing/Landing";
+import Home from "./components/home/Home";
+import Chat from "./components/chat/Chat";
 
 function App() {
-  var socket = io(server, { transports: ["websocket"] });
+  // var socket = io(server, { transports: ["websocket"] });
+  const [user, setUser] = useState([]);
 
   return (
-    <div>
-      <h1>Unknown Chat</h1>
-    </div>
+    <Router>
+      {/* landing page  */}
+      <Switch>
+
+        {/* landing  */}
+        <Route exact path="/">
+          <Landing setUser={setUser} />
+        </Route>
+
+        {/* home  */}
+        <Route exact path="/app">
+          <Home />
+        </Route>
+
+        {/* chat */}
+        <Route exact path="/chat/:roomId">
+          <Home />
+        </Route>
+
+      </Switch>
+    </Router>
   );
 }
 
