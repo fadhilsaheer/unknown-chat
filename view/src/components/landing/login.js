@@ -6,7 +6,7 @@ import firebaseConfig from '../../utils/firebase/firebase'; // this doest exist 
 
 firebase.initializeApp(firebaseConfig);
 
-const provider = firebase.auth.GoogleAuthProvider();
+var provider = new firebase.auth.GoogleAuthProvider();
 
 firebase.auth().useDeviceLanguage();
 
