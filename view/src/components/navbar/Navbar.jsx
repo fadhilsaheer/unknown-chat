@@ -1,14 +1,12 @@
-import { logo } from './logos'
-
+import Logo from './components/Logo'
+import Menu from './components/Menu'
 
 const Navbar = () => {
     return (
-        <section className="navbar">
-            <div className="navbar-logo">
-                <h2>UCHAT</h2>
-                <img src={logo} alt="uchat" />
-            </div>
-        </section>
+        <div className="navbar">
+            <Logo />
+            <Menu />
+        </div>
     );
 }
  
