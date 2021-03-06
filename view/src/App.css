@@ -37,6 +37,13 @@ body {
   margin: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
 
 /* landing */
 
@@ -103,15 +110,15 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 20%;
+  width: 300px;
   background: var(--light);
 }
 
 .navbar-logo{
   display: flex;
   flex-direction: row;
-  justify-content: center;
   margin-top: 20px;
+  margin-left: 50px;
 }
 
 .navbar-logo img{
@@ -122,4 +129,53 @@ body {
   color: var(--purple);
   font-weight: bolder;
   font-size: 25px;
+}
+
+.navbar-menu{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.navbar-menu h2{
+  font-size: 20px;
+  color: var(--dark-3);
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+.navbar-menu div{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+
+.navbar-menu button{
+  padding-left: 50px;
+}
+
+.navbar-menu button{
+  width: 100%;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark-4);
+  display: flex;
+  align-items: center;
+  height: 60px;
+  cursor: pointer;
+  background: var(--light);
+}
+
+.navbar-menu span{
+  padding-left: 20px;
+}
+
+.navbar-menu-logo{
+  color: var(--purple);
+}
+
+.navbar-menu-current {
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
