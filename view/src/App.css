@@ -333,6 +333,7 @@ ul {
   background: var(--light-2);
   border-radius: 10px;
   padding: 30px 50px;
+  margin-bottom: 20px;
 }
 
 
@@ -397,10 +398,8 @@ ul {
   .all-chats{
     width: 100%;
     margin: 0;
-  }
-  .all-chats-container{
-    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin-left: 20px;
   }
 }
