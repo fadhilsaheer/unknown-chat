@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faRobot } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 const Buttons = () => {
@@ -12,11 +12,11 @@ const Buttons = () => {
             </div>
             <div>
                 <center>
-                    <button><FontAwesomeIcon icon={faRobot} /> <span>Join</span></button>
+                    <button><FontAwesomeIcon icon={faUserPlus} /> <span>Join</span></button>
                 </center>
             </div>
         </div>
     );
 }
- 
+
 export default Buttons;

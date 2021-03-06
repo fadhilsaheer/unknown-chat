@@ -1,12 +1,14 @@
 import { useHistory } from 'react-router-dom';
 
 import Navbar from '../navbar/Navbar';
+import AllChats from './allChats';
+import Buttons from './Buttons';
 
 const Home = ({ userData }) => {
     const location = useHistory();
 
-    if(userData.length == 0){
-        location.push("/")
+    if(userData.length === 0){
+        location.push("/");
         // sample profile data
         // userData = {
         //     name: "john",
@@ -18,8 +20,8 @@ const Home = ({ userData }) => {
     return (
         <div className="home">
             <Navbar user={userData} />
-            <div>
-            </div>
+            <Buttons />
+            <AllChats />
         </div>
     );
 }

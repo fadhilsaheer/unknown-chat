@@ -113,8 +113,13 @@ ul {
 .navbar-icon button{
   color: var(--purple);
   font-size: 30px;
-  margin: 30px;
+  background: none;
   cursor: pointer;
+  width: 52px;
+  height: 52px;
+  margin-left: 10px;
+  border-radius: 10px;
+  margin: 30px;
 }
 
 .navbar {
@@ -271,4 +276,28 @@ ul {
   .navbar-icon{
     display: block;
   }
+}
+
+/* top buttons  */
+
+.top-buttons{
+  margin: 30px;
+  width: 100%;
+}
+
+.top-buttons button{
+  background: var(--purple-1);
+  color: var(--light);
+  font-size: 15px;
+  cursor: pointer;
+  width: 52px;
+  height: 52px;
+  margin-left: 10px;
+  border-radius: 10px;
+  float: right;
+  transition: 0.3s;
+}
+
+.top-buttons button:hover{
+  opacity: 0.8;
 }

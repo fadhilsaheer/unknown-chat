@@ -8,8 +8,16 @@ const server = require("http").createServer(app);
 const socket = require("socket.io");
 const io = socket(server);
 
+const { getAllRooms } = require("./utils/helper");
+
 io.on("connection", (socket) => {
-  console.log("user connected " + socket.id);
+
+  // giving all available chats
+  socket.on("all-chats", () => {
+    let rooms = getAllRooms();
+    socket.emit("all-chats", rooms);
+  })
+
 });
 
 
