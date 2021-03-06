@@ -37,11 +37,11 @@ body {
   margin: 0;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
@@ -55,20 +55,20 @@ ul{
   height: 100vh;
 }
 
-.landing-text h1{
+.landing-text h1 {
   font-size: 50px;
   font-weight: bolder;
   color: var(--dark-5);
   margin: 0;
 }
 
-.landing-text h3{
+.landing-text h3 {
   font-size: 30px;
   font-weight: 500;
   color: var(--dark-3);
 }
 
-.landing-text button{
+.landing-text button {
   border-radius: 10px;
   color: var(--light);
   background: var(--purple-1);
@@ -79,7 +79,7 @@ ul{
   cursor: pointer;
 }
 
-.landing-text button:hover{
+.landing-text button:hover {
   opacity: 0.8;
 }
 
@@ -89,7 +89,7 @@ ul{
     flex-direction: column;
     justify-content: space-around;
   }
-  .landing img{
+  .landing img {
     width: 90%;
     margin-left: 25px;
   }
@@ -97,7 +97,7 @@ ul{
 
 /* home */
 
-.home{
+.home {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -114,48 +114,47 @@ ul{
   background: var(--light);
 }
 
-.navbar-logo{
+.navbar-logo {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
   margin-left: 50px;
 }
 
-.navbar-logo img{
+.navbar-logo img {
   width: 30px;
 }
 
-.navbar-logo h2{
+.navbar-logo h2 {
   color: var(--purple);
   font-weight: bolder;
   font-size: 25px;
 }
 
-.navbar-menu{
+.navbar-menu {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
 }
 
-.navbar-menu h2{
+.navbar-menu h2 {
   font-size: 20px;
   color: var(--dark-3);
   font-weight: bold;
   margin-left: 50px;
 }
 
-.navbar-menu div{
+.navbar-menu div {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
 }
 
-
-.navbar-menu button{
+.navbar-menu button {
   padding-left: 50px;
 }
 
-.navbar-menu button{
+.navbar-menu button {
   width: 100%;
   margin-top: 20px;
   font-size: 20px;
@@ -168,14 +167,59 @@ ul{
   background: var(--light);
 }
 
-.navbar-menu span{
+.navbar-menu span {
   padding-left: 20px;
 }
 
-.navbar-menu-logo{
+.navbar-menu-logo {
   color: var(--purple);
 }
 
 .navbar-menu-current {
-   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.navbar-account {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.navbar-account h2 {
+  font-size: 20px;
+  color: var(--dark-3);
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+.navbar-account div {
+  margin-top: 20px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-account div > img{
+  border-radius: 50%;
+  width: 51px;
+  height: 51px;
+}
+
+.navbar-account section{
+  margin-left: 10px;
+}
+
+.navbar-account h3{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: var(--dark-5);
+  margin-bottom: 0;
+}
+
+.navbar-account h4{
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--dark);
+  margin: 0;
 }
