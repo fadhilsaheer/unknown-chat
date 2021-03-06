@@ -106,6 +106,17 @@ ul {
 
 /* navbar  */
 
+.navbar-icon{
+  display: none;
+}
+
+.navbar-icon button{
+  color: var(--purple);
+  font-size: 30px;
+  margin: 30px;
+  cursor: pointer;
+}
+
 .navbar {
   display: flex;
   flex-direction: column;
@@ -113,6 +124,7 @@ ul {
   width: 300px;
   background: var(--light);
 }
+
 
 .navbar-logo {
   display: flex;
@@ -253,7 +265,10 @@ ul {
 }
 
 @media only screen and (max-width: 1153px){
-  .navbar{
+  .navbar-temp{
     display: none;
+  }
+  .navbar-icon{
+    display: block;
   }
 }
