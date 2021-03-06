@@ -109,7 +109,7 @@ ul {
 .navbar {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   width: 300px;
   background: var(--light);
 }
@@ -222,4 +222,38 @@ ul {
   font-weight: bold;
   color: var(--dark);
   margin: 0;
+}
+
+.navbar-button{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-button button{
+  width: 150px;
+  margin: 10px;
+  background: var(--purple-1);
+  color: var(--light);
+  height: 47px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.navbar-button button:hover{
+  opacity: 0.8;
+}
+
+.navbar-button span{
+  padding-left: 10px;
+}
+
+@media only screen and (max-width: 1153px){
+  .navbar{
+    display: none;
+  }
 }
