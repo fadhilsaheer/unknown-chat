@@ -36,6 +36,7 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+
 /* landing */
 
 .landing {
@@ -84,4 +85,27 @@ body {
     width: 90%;
     margin-left: 25px;
   }
+}
+
+/* home */
+
+.home{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0;
+}
+
+/* navbar  */
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 20%;
+  background: var(--light);
+}
+
+.navbar-logo{
+  
 }

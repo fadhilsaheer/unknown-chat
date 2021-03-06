@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,9 +10,12 @@ import landingImage from '../../assets/home-chat.png';
 
 const Landing = ({ setUser }) => {
 
+    const location = useHistory();
+
     const handleLogin = () => {
         login().then((userData) => {
             setUser(userData);
+            location.push("/app");
         }).catch(() => {
             swal("Login Failed !!", "failed to login from google account 😥", "error")
         })

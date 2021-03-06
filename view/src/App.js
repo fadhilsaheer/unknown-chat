@@ -25,7 +25,7 @@ function App() {
 
         {/* home  */}
         <Route exact path="/app">
-          <Home />
+          <Home userData={user} />
         </Route>
 
         {/* chat */}
