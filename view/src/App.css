@@ -287,6 +287,9 @@ ul {
   .navbar-icon{
     display: block;
   }
+  .navbar-container{
+    height: fit-content;
+  }
 }
 
 /* top buttons  */
@@ -314,6 +317,7 @@ ul {
 }
 
 /* all chats  */
+
 
 .all-chats{
   margin: 50px 30px 50px 330px;
@@ -355,6 +359,11 @@ ul {
   justify-content: space-between;
 }
 
+.all-chats-down span{
+  font-size: 21px;
+  color: var(--dark-3);
+}
+
 .all-chats-account{
   display: flex;
   flex-direction: row;
@@ -382,4 +391,16 @@ ul {
   width: 51px;
   height: 51px;
   border-radius: 50%;
+}
+
+@media only screen and (max-width: 1153px){
+  .all-chats{
+    width: 100%;
+    margin: 0;
+  }
+  .all-chats-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }

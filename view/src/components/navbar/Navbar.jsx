@@ -18,7 +18,7 @@ const Navbar = ({ user }) => {
     }
 
     return (
-        <div>
+        <div className="navbar-container">
             <div className="navbar-icon">
                 <button onClick={toggleNav} ><FontAwesomeIcon icon={faBars} /></button>
             </div>

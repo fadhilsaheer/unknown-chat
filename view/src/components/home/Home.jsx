@@ -8,7 +8,7 @@ const Home = ({ userData }) => {
     const location = useHistory();
 
     if (userData.length === 0) {
-        // location.push("/");
+        location.push("/");
         // sample profile data
         userData = {
             name: "john",
@@ -22,7 +22,9 @@ const Home = ({ userData }) => {
             <Navbar user={userData} />
             <div className="home-app">
                 <Buttons />
-                <AllChats />
+                <div className="all-chats-container">
+                    <AllChats />
+                </div>
             </div>
         </div>
     );
