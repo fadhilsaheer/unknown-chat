@@ -38,7 +38,7 @@ const AllChats = ({ rooms }) => {
         <div className="body-container">
             <h2>Public Chats</h2>
             {allRooms.map((room) => (
-                <ChatContainer room={room} />
+                <ChatContainer key={room.id} room={room} />
             ))}
         </div>
     );
