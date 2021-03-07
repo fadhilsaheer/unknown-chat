@@ -316,20 +316,20 @@ ul {
   opacity: 0.8;
 }
 
-/* all chats  */
+/* body container  */
 
 
-.all-chats{
+.body-container{
   margin: 50px 30px 50px 330px;
 }
 
-.all-chats h2{
+.body-container h2{
   font-size: 20px;
   font-weight: bold;
   color: var(--dark-3);
 }
 
-.all-chats-chat-container{
+.body-container-chat-container{
   background: var(--light-2);
   border-radius: 10px;
   padding: 30px 50px;
@@ -337,14 +337,14 @@ ul {
 }
 
 
-.all-chats-chat-container h3{
+.body-container-chat-container h3{
   color: var(--dark-5);
   font-size: 18px;
   font-weight: 600;
   margin: 0;
 }
 
-.all-chats-chat-container h4{
+.body-container-chat-container h4{
   margin: 0;
   color: var(--dark-3);
   margin-top: 5px;
@@ -352,7 +352,7 @@ ul {
   font-weight: 600;
 }
 
-.all-chats-down{
+.body-container-down{
   margin-top: 50px;
   display: flex;
   flex-direction: row;
@@ -360,46 +360,62 @@ ul {
   justify-content: space-between;
 }
 
-.all-chats-down span{
+.body-container-down span{
   font-size: 21px;
   color: var(--dark-3);
 }
 
-.all-chats-account{
+.body-container-account{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.all-chats-account section{
+.body-container-account section{
   margin-left: 10px;
 }
 
-.all-chats-account section h3{
+.body-container-account section h3{
   margin: 0;
   font-size: 15px;
   color: var(--dark-4);
 }
 
-.all-chats-account section h4{
+.body-container-account section h4{
   margin: 0;
   font-size: 10px;
   color: var(--dark-4);
 }
 
-.all-chats-account img{
+.body-container-account img{
   width: 51px;
   height: 51px;
   border-radius: 50%;
 }
 
 @media only screen and (max-width: 1153px){
-  .all-chats{
+  .body-container{
     width: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
     margin-left: 20px;
   }
+}
+
+/* chat */
+
+.chat{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0;
+}
+
+.chat-app{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 50px;
 }

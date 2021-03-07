@@ -15,6 +15,12 @@ function App() {
   var socket = io(constants.server, { transports: ["websocket"] });
   const [user, setUser] = useState([]);
 
+  let tempUser = {
+    name: "john",
+    email: "john@gmail.com",
+    profile: "https://www.w3schools.com/w3images/streetart2.jpg",
+  };
+
   return (
     <Router>
       {/* landing page  */}
@@ -32,7 +38,7 @@ function App() {
 
         {/* chat */}
         <Route exact path="/chat/:roomId">
-          <Home />
+          <Chat user={tempUser} />
         </Route>
 
       </Switch>

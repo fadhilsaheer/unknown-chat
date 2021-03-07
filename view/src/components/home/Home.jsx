@@ -12,7 +12,7 @@ const Home = ({ userData, socket }) => {
     const location = useHistory();
 
     if (userData.length === 0) {
-        location.push("/");
+        // location.push("/");
         // sample profile data
         userData = {
             name: "john",

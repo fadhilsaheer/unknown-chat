@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 const ChatContainer = ({ room }) => {
     return (
         <Link to={`/chat/${room.id}`}>
-            <div className="all-chats-chat-container">
+            <div className="body-container-chat-container">
                 <h3>{room.name}</h3>
                 <h4>{room.description}</h4>
 
-                <div className="all-chats-down">
-                    <div className="all-chats-account">
+                <div className="body-container-down">
+                    <div className="body-container-account">
                         <img src={room.host.profile} alt={room.host.name} />
                         <section>
                             <h3>{room.host.name}</h3>
@@ -35,7 +35,7 @@ const AllChats = ({ rooms }) => {
     }
 
     return (
-        <div className="all-chats">
+        <div className="body-container">
             <h2>Public Chats</h2>
             {allRooms.map((room) => (
                 <ChatContainer room={room} />
