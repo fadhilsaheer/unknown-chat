@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
 import useFetch from '../../hooks/useFetch';
-import usePost from '../../hooks/usePost';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -20,33 +20,26 @@ const Chat = ({ user, socket }) => {
     const location = useHistory();
 
     const [openDrawer, setOpenDrawer] = useState(false);
-    const [message, setMessage] = useState("")
+    const [message, setMessage] = useState("");
 
-    const {data:room } = useFetch(`${constants.database}/rooms?id=${roomId}`)
-    
-    if(room){
-        if(room.length === 0){
+    const { data: room } = useFetch(`${constants.database}/rooms?id=${roomId}`)
+
+
+    if (room) {
+        if (room.length === 0) {
             location.push("/app")
-        }else{
-            socket.emit("join-room", roomId);
-            
+        } else {
             let requestData = {
                 name: user.name,
                 email: user.email,
                 profile: user.profile,
-                room: roomId
+                room: "public"
             }
-
-            let postUrl = `${constants.database}/users/`;
-
-
-            fetch(postUrl, {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(requestData),
-            })
+            socket.emit("join-room", requestData);
         }
     }
+
+
 
 
     return (
