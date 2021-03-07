@@ -33,7 +33,7 @@ function App() {
 
         {/* home  */}
         <Route exact path="/app">
-          <Home socket={socket} userData={user} />
+          <Home userData={user} />
         </Route>
 
         {/* chat */}

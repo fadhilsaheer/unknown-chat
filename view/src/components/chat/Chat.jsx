@@ -18,16 +18,7 @@ const Chat = ({ user, socket }) => {
     const [room, setRoom] = useState({})
     const [messages, setMesssage] = useState([])
 
-    // socket handling
-    socket.emit("user-join", {user, roomId})
     
-    socket.on("join-room", (serverData)=>{
-        if(!serverData.status){
-            location.push("/app")
-        }else{
-            setRoom(serverData.room)
-        }
-    })
 
 
     return (

@@ -8,7 +8,7 @@ import Buttons from './Buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-const Home = ({ userData, socket }) => {
+const Home = ({ userData }) => {
     const location = useHistory();
 
     if (userData.length === 0) {
@@ -27,12 +27,6 @@ const Home = ({ userData, socket }) => {
     const toggleNav = () => {
         setOpenDrawer(true)
     }
-
-    socket.emit("all-chats")
-
-    socket.on("all-chats", (serverRooms)=>{
-        setRooms(serverRooms);
-    })
 
 
     return (

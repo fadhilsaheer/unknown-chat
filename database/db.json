@@ -1,14 +1,16 @@
 {
-    "rooms": {
-        "name": "public",
-        "id": "public",
-        "public": true,
-        "host": {
-            "name": "Public",
-            "email": "Public@Uchat",
-            "profile": "https://www.w3schools.com/w3images/streetart2.jpg"
+    "rooms": [
+        {
+            "name": "public",
+            "id": "public",
+            "public": true,
+            "host": {
+                "name": "Public",
+                "email": "Public@Uchat",
+                "profile": "https://www.w3schools.com/w3images/streetart2.jpg"
+            }
         }
-    },
+    ],
 
     "users": [
         {
