@@ -6,6 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import Navbar from '../navbar/Navbar';
 import Buttons from './Buttons';
+import Chats from './Chats';
 
 const Chat = ({ user, socket }) => {
     const { roomId } = useParams();
@@ -19,7 +20,6 @@ const Chat = ({ user, socket }) => {
     socket.emit("user-join", {user, roomId})
 
     socket.on("join-room", (serverData)=>{
-        console.log(serverData);
         if(!serverData.status){
             location.push("/app")
         }else{
@@ -38,11 +38,10 @@ const Chat = ({ user, socket }) => {
                     </div>
                     <Buttons />
                 </div>
+                {!room.id && <p>Loading ...</p>}
                 {room.id && <div className="chat-container">
-                    <h2>{room.name}</h2>
-                    {room.chats.map((chat)=>(
-                        <p>{chat}</p>
-                    ))}
+                    <h2 className="chat-room-name">{room.name}</h2>
+                    <Chats chats={room.chats} />
                 </div>}
             </div>
         </div>

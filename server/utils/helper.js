@@ -12,7 +12,23 @@ const rooms = {
             profile: "https://www.w3schools.com/w3images/streetart2.jpg",
         },
         users: [],
-        chats: [],
+        chats: [
+            {message: "hello", user: {
+                name: "Public",
+                email: "Public@uchat",
+                profile: "https://www.w3schools.com/w3images/streetart2.jpg",
+            }},
+            {message: "hello", user: {
+                name: "Public",
+                email: "Public@uchat",
+                profile: "https://www.w3schools.com/w3images/streetart2.jpg",
+            }},
+            {message: "hello", user: {
+                name: "Public",
+                email: "Public@uchat",
+                profile: "https://www.w3schools.com/w3images/streetart2.jpg",
+            }},
+        ],
     },
 }; // this will contain all datas of this entire app
 

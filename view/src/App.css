@@ -464,3 +464,12 @@ ul {
 .chat-container{
   margin: 40px;
 }
+
+.chat-room-name{
+  color: var(--purple)  ;
+}
+
+.chat-message-container{
+  height: 100%;
+  overflow-y: scroll;
+}

@@ -21,10 +21,12 @@ io.on("connection", (socket) => {
   // user join
   socket.on("user-join", (clientData)=>{
     joinRoom(clientData.roomId, clientData.user).then((room)=>{
+      
       socket.join(room.id)
       socket.emit("join-room", {room: room, status: true})
 
     }).catch(()=>{
+
       socket.emit("join-room", {status: false})
 
     })
