@@ -1,24 +1,101 @@
 {
-    "rooms": [
-        {
-            "name": "public",
-            "description": "public server for uchat",
-            "id": "public",
-            "public": true,
-            "host": {
-                "name": "Public",
-                "email": "Public@Uchat",
-                "profile": "https://www.w3schools.com/w3images/streetart2.jpg"
-            }
-        }
-    ],
-
-    "users": [
-        {
-            "name": "Public",
-            "email": "Public@Uchat",
-            "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
-            "room": "public"
-        }
-    ]
+  "rooms": [
+    {
+      "name": "public",
+      "description": "public server for uchat",
+      "id": "public",
+      "public": true,
+      "host": {
+        "name": "Public",
+        "email": "Public@Uchat",
+        "profile": "https://www.w3schools.com/w3images/streetart2.jpg"
+      }
+    }
+  ],
+  "users": [
+    {
+      "name": "Public",
+      "email": "Public@Uchat",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 1
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 2
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 3
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 4
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 5
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 6
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 7
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 8
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 9
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 10
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 11
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "id": 12
+    }
+  ]
 }

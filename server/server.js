@@ -13,6 +13,10 @@ io.on("connection", (socket) => {
 
   // this will take care of chat
 
+  socket.on("join-room", (room)=>{
+    socket.join(room);
+  })
+
 });
 
 

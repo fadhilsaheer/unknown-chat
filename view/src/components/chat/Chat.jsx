@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+
 import useFetch from '../../hooks/useFetch';
+import usePost from '../../hooks/usePost';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -20,14 +22,31 @@ const Chat = ({ user, socket }) => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [message, setMessage] = useState("")
 
-    const {data:room, isPending} = useFetch(`${constants.database}/rooms?id=${roomId}`)
-
+    const {data:room } = useFetch(`${constants.database}/rooms?id=${roomId}`)
+    
     if(room){
         if(room.length === 0){
             location.push("/app")
+        }else{
+            socket.emit("join-room", roomId);
+            
+            let requestData = {
+                name: user.name,
+                email: user.email,
+                profile: user.profile,
+                room: roomId
+            }
+
+            let postUrl = `${constants.database}/users/`;
+
+
+            fetch(postUrl, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(requestData),
+            })
         }
     }
-    
 
 
     return (
@@ -43,8 +62,8 @@ const Chat = ({ user, socket }) => {
                 {!room && <Loader />}
                 {room && <div className="chat-container">
                     <h2 className="chat-room-name">{room.name}</h2>
-                    <Chats />
-                    <ChatForm setMessage={setMessage} />
+                    <Chats socket={socket} />
+                    <ChatForm setMessage={setMessage} message={message} socket={socket} />
                 </div>}
             </div>
         </div>

@@ -1,7 +1,7 @@
 
 import ChatMessage from './ChatMsg';
 
-const Chats = () => {
+const Chats = ({ socket }) => {
 
     let chats = {
         message: "Hello this is a message",
@@ -14,9 +14,7 @@ const Chats = () => {
 
     return (
         <div className="chat-message-container">
-            <ChatMessage type="user" chat={chats.message} user={chats.user} />
-            <ChatMessage type="mine" chat={chats.message} user={chats.user} />
-            <ChatMessage type="robot" chat="host clear chatted message" />
+            
         </div>
     );
 }
