@@ -22,7 +22,6 @@ const Home = ({ userData }) => {
     }
 
     const [openDrawer, setOpenDrawer] = useState(false);
-    const [rooms, setRooms] = useState([]);
 
     const toggleNav = () => {
         setOpenDrawer(true)
@@ -38,7 +37,7 @@ const Home = ({ userData }) => {
                 </div>
                 <Buttons />
                 <div className="all-chats-container">
-                    <AllChats rooms={rooms} />
+                    <AllChats />
                 </div>
             </div>
         </div>
