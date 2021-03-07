@@ -22,7 +22,7 @@ const Home = ({ userData, socket }) => {
     }
 
     const [openDrawer, setOpenDrawer] = useState(false);
-    const [rooms, setRooms] = useState({});
+    const [rooms, setRooms] = useState([]);
 
     const toggleNav = () => {
         setOpenDrawer(true)

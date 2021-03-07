@@ -8,6 +8,7 @@ import Navbar from '../navbar/Navbar';
 import Buttons from './Buttons';
 import Chats from './Chats';
 import Loader from './Loader';
+import ChatForm from './ChatForm';
 
 const Chat = ({ user, socket }) => {
     const { roomId } = useParams();
@@ -15,6 +16,7 @@ const Chat = ({ user, socket }) => {
 
     const [openDrawer, setOpenDrawer] = useState(false);
     const [room, setRoom] = useState({})
+    const [messages, setMesssage] = useState([])
 
     // socket handling
     socket.emit("user-join", {user, roomId})
@@ -41,7 +43,8 @@ const Chat = ({ user, socket }) => {
                 {!room.id && <Loader />}
                 {room.id && <div className="chat-container">
                     <h2 className="chat-room-name">{room.name}</h2>
-                    <Chats chats={room.chats} />
+                    <Chats chats={messages} />
+                    <ChatForm setMessage={setMesssage} />
                 </div>}
             </div>
         </div>

@@ -1,36 +1,17 @@
-
-
-const rooms = {
-    "public": {
+const rooms = [
+    {
         name: "public",
         id: "public",
         description: "public server",
         public: true,
-        host: {
-            name: "Public",
-            email: "Public@uchat",
-            profile: "https://www.w3schools.com/w3images/streetart2.jpg",
-        },
-        users: [],
-        chats: [
-            {message: "hello", user: {
-                name: "Public",
-                email: "Public@uchat",
-                profile: "https://www.w3schools.com/w3images/streetart2.jpg",
-            }},
-            {message: "hello", user: {
-                name: "Public",
-                email: "Public@uchat",
-                profile: "https://www.w3schools.com/w3images/streetart2.jpg",
-            }},
-            {message: "hello", user: {
-                name: "Public",
-                email: "Public@uchat",
-                profile: "https://www.w3schools.com/w3images/streetart2.jpg",
-            }},
+        host: [
+            "Public",
+            "Public@uchat",
+            "https://www.w3schools.com/w3images/streetart2.jpg",
         ],
+        users: [],
     },
-}; // this will contain all datas of this entire app
+]; // this will contain all datas of this entire app
 
 
 // room functions
@@ -45,14 +26,15 @@ module.exports = {
 
     getOneRoom: (roomId) => {
         return new Promise((resolve, reject) => {
-            let room = rooms[roomId];
-
-            if(room != undefined){
-                resolve(room);
-            }else{
-                reject();
+            for(room in rooms){
+                room = rooms[room]
+                if(room.id == roomId){
+                    resolve(room);
+                    break;
+                }
             }
 
+            reject();
         })
     },
 

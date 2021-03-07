@@ -1,12 +1,10 @@
 
 import ChatMessage from './ChatMsg';
 
-const Chats = ({ chats }) => {
+const Chats = ({ Chats }) => {
     return (
         <div className="chat-message-container">
-            {chats.map(chat=>(
-                <ChatMessage chat={chat} />
-            ))}
+
         </div>
     );
 }

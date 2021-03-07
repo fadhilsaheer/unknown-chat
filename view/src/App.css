@@ -60,6 +60,16 @@ body {
   cursor: pointer;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: var(--light-2);
+  background: var(--purple-1);
+}
+
+::selection {
+  color: var(--light-2);
+  background: var(--purple);
+}
+
 a {
   text-decoration: none;
 }
@@ -503,4 +513,22 @@ ul {
 .chat-message-container{
   height: 600px;
   overflow-y: scroll;
+}
+
+.chat-message{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chat-message img{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.chat-message p{
+  max-width: 100px;
+  background: var(--purple);
+  color: var(--light);
 }

@@ -12,10 +12,10 @@ const ChatContainer = ({ room }) => {
 
                 <div className="body-container-down">
                     <div className="body-container-account">
-                        <img src={room.host.profile} alt={room.host.name} />
+                        <img src={room.host[2]} alt={room.host.name} />
                         <section>
-                            <h3>{room.host.name}</h3>
-                            <h4>{room.host.email}</h4>
+                            <h3>{room.host[0]}</h3>
+                            <h4>{room.host[1]}</h4>
                         </section>
                     </div>
 
