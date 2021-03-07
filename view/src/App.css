@@ -538,9 +538,17 @@ ul {
 }
 
 .chat-form input {
-  height: 40px;
+  height: 52px;
   flex: 2;
+  padding-left: 10px;
+  outline: none;
+  border: 2px solid var(--purple-1);
+  background: none;
+  border-radius: 10px;
+  color: var(--purple);
+  font-size: 16px;
 }
+
 
 .chat-form button {
   background: var(--purple-1);
@@ -553,4 +561,17 @@ ul {
   border-radius: 10px;
   float: right;
   transition: 0.3s;
+}
+
+.chat-form button:hover{
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 414px){
+  .chat-form button{
+    margin: 0;
+  }
+  .chat-form input{
+    flex: 1;
+  }
 }

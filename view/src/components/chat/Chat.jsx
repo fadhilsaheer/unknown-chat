@@ -15,9 +15,13 @@ const Chat = ({ user, socket }) => {
     const location = useHistory();
 
     const [openDrawer, setOpenDrawer] = useState(false);
-    const [room, setRoom] = useState({})
+    // const [room, setRoom] = useState({})
     const [messages, setMesssage] = useState([])
 
+    let room = {
+        id: "public",
+        name: "public"
+    }
     
 
 
