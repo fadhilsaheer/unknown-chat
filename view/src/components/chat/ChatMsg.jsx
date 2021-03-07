@@ -1,8 +1,11 @@
-const ChatMessage = ({ chat, user }) => {
+const ChatMessage = ({ chat, user, type }) => {
+
+    let isNotRobot = type == "robot" ? false : true;
+
     return (
-        <div className="chat-message">
-            <img src={chat.user.profile} alt={chat.user.name} />
-            <p>{chat.message}</p>
+        <div className={`chat-message chat-message-${type}`}>
+            {isNotRobot && <img src={user.profile} alt={user.name} />}
+            <p>{chat}</p>
         </div>
     );
 }

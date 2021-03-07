@@ -38,7 +38,7 @@ const ChatContainer = ({ room }) => {
 
 const AllChats = () => {
 
-    const { data: rooms, isPending } = useFetch(constants.database + "/rooms");
+    const { data: rooms, isPending } = useFetch(constants.database + "/rooms?public=true");
 
     return (
         <div>

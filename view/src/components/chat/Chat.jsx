@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import useFetch from '../../hooks/useFetch';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -10,17 +11,21 @@ import Chats from './Chats';
 import Loader from './Loader';
 import ChatForm from './ChatForm';
 
+import constants from '../../utils/consts';
+
 const Chat = ({ user, socket }) => {
     const { roomId } = useParams();
     const location = useHistory();
 
     const [openDrawer, setOpenDrawer] = useState(false);
-    // const [room, setRoom] = useState({})
-    const [messages, setMesssage] = useState([])
+    const [message, setMessage] = useState("")
 
-    let room = {
-        id: "public",
-        name: "public"
+    const {data:room, isPending} = useFetch(`${constants.database}/rooms?id=${roomId}`)
+
+    if(room){
+        if(room.length === 0){
+            location.push("/app")
+        }
     }
     
 
@@ -35,11 +40,11 @@ const Chat = ({ user, socket }) => {
                     </div>
                     <Buttons />
                 </div>
-                {!room.id && <Loader />}
-                {room.id && <div className="chat-container">
+                {!room && <Loader />}
+                {room && <div className="chat-container">
                     <h2 className="chat-room-name">{room.name}</h2>
-                    <Chats chats={messages} />
-                    <ChatForm setMessage={setMesssage} />
+                    <Chats />
+                    <ChatForm setMessage={setMessage} />
                 </div>}
             </div>
         </div>
