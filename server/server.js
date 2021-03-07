@@ -12,6 +12,8 @@ const { getAllRooms } = require("./utils/helper");
 
 io.on("connection", (socket) => {
 
+  console.log(`client connected ${socket.id}`)
+
   // giving all available chats
   socket.on("all-chats", () => {
     let rooms = getAllRooms();

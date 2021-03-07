@@ -1,35 +1,45 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-const ChatContainer = () => {
+import { Link } from 'react-router-dom';
+
+const ChatContainer = ({ room }) => {
     return (
-        <div className="all-chats-chat-container">
-            <h3>Public</h3>
-            <h4>A place where all can chat</h4>
+        <Link to={`/chat/${room.id}`}>
+            <div className="all-chats-chat-container">
+                <h3>{room.name}</h3>
+                <h4>{room.description}</h4>
 
-            <div className="all-chats-down">
-                <div className="all-chats-account">
-                    <img src="https://www.w3schools.com/w3images/streetart2.jpg" alt="awesome" />
-                    <section>
-                        <h3>Public</h3>
-                        <h4>public@uchat</h4>
-                    </section>
+                <div className="all-chats-down">
+                    <div className="all-chats-account">
+                        <img src={room.host.profile} alt={room.host.name} />
+                        <section>
+                            <h3>{room.host.name}</h3>
+                            <h4>{room.host.email}</h4>
+                        </section>
+                    </div>
+
+                    <span><FontAwesomeIcon icon={faUser} /> {room.users.length}</span>
                 </div>
-
-                <span><FontAwesomeIcon icon={faUser} /> 12</span>
             </div>
-        </div>
+        </Link>
     );
 }
 
-const AllChats = () => {
+const AllChats = ({ rooms }) => {
+
+    let allRooms = [];
+
+    for (let room in rooms) {
+        allRooms.push(rooms[room]);
+    }
+
     return (
         <div className="all-chats">
             <h2>Public Chats</h2>
-            <ChatContainer />
-            <ChatContainer />
-            <ChatContainer />
-            <ChatContainer />
+            {allRooms.map((room) => (
+                <ChatContainer room={room} />
+            ))}
         </div>
     );
 }

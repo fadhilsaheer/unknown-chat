@@ -8,11 +8,11 @@ import Buttons from './Buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-const Home = ({ userData }) => {
+const Home = ({ userData, socket }) => {
     const location = useHistory();
 
     if (userData.length === 0) {
-        // location.push("/");
+        location.push("/");
         // sample profile data
         userData = {
             name: "john",
@@ -22,10 +22,18 @@ const Home = ({ userData }) => {
     }
 
     const [openDrawer, setOpenDrawer] = useState(false);
+    const [rooms, setRooms] = useState({});
 
     const toggleNav = () => {
         setOpenDrawer(true)
     }
+
+    socket.emit("all-chats")
+
+    socket.on("all-chats", (serverRooms)=>{
+        setRooms(serverRooms);
+    })
+
 
     return (
         <div className="home">
@@ -36,7 +44,7 @@ const Home = ({ userData }) => {
                 </div>
                 <Buttons />
                 <div className="all-chats-container">
-                    <AllChats />
+                    <AllChats rooms={rooms} />
                 </div>
             </div>
         </div>

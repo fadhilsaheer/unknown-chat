@@ -5,6 +5,7 @@ const rooms = {
         name: "public",
         id: "public",
         description: "public server",
+        public: true,
         host: {
             name: "Public",
             email: "Public@uchat",
@@ -12,7 +13,7 @@ const rooms = {
         },
         users: [],
         chats: [],
-    }
+    },
 }; // this will contain all datas of this entire app
 
 
