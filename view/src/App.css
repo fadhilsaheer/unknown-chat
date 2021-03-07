@@ -419,3 +419,48 @@ ul {
   width: 100%;
   margin-right: 50px;
 }
+
+.chat-navbar-icon button{
+  color: var(--purple);
+  font-size: 30px;
+  background: none;
+  cursor: pointer;
+  width: 52px;
+  height: 52px;
+  margin-left: 10px;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.chat-top-icons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+}
+
+.chat-top-buttons{
+  margin: 30px;
+  width: 100%;
+}
+
+.chat-top-buttons button{
+  background: var(--purple-1);
+  color: var(--light);
+  font-size: 15px;
+  cursor: pointer;
+  width: 52px;
+  height: 52px;
+  margin-left: 10px;
+  border-radius: 10px;
+  float: right;
+  transition: 0.3s;
+}
+
+.chat-top-buttons button:hover{
+  opacity: 0.8;
+}
+
+.chat-container{
+  margin: 40px;
+}

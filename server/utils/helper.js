@@ -40,14 +40,15 @@ module.exports = {
         })
     },
 
+
     // user 
 
     joinRoom: (roomId, userData) => {
         return new Promise((resolve, reject) => {
-            this.getOneRoom(roomId).then((room)=>{
-                room.users.push(userData);
-                resolve(room);
-            }).catch(()=>{
+            module.exports.getOneRoom(roomId).then((room) => {
+                room.users.push(userData)
+                resolve(room)
+            }).catch(() => {
                 reject();
             })
         })
