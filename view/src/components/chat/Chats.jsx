@@ -8,7 +8,7 @@ const Chats = ({ socket, room }) => {
 
     return (
         <div className="chat-message-container">
-
+            <ChatMessage type="robot" chat="Welcome To Uchat" />
         </div>
     );
 }

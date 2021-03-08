@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
 import useFetch from '../../hooks/useFetch';
-import axios from 'axios';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -29,19 +28,14 @@ const Chat = ({ user, socket }) => {
         if (room.length === 0) {
             location.push("/app")
         } else {
-            let requestData = {
-                name: user.name,
-                email: user.email,
-                profile: user.profile,
-                room: roomId,
-            }
-
-            axios.post(`${constants.database}/users`, requestData).then(()=>{
-                socket.emit("join-room", roomId);
-            })
-
+            socket.emit("join-room", {roomId, user})
         }
     }
+
+    socket.on("join-room", (users)=>{
+        console.log("users");
+        console.log(users);
+    })
 
 
 

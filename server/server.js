@@ -8,12 +8,22 @@ const server = require("http").createServer(app);
 const socket = require("socket.io");
 const io = socket(server);
 
+const { joinRoom } = require("./utils");
+
 io.on("connection", (socket) => {
   // this will take care of chat
 
-  socket.on("join-room", (room) => {
-    socket.join(room);
-    socket.emit("join-room")
+  socket.on("join-room", (clientData) => {
+    joinRoom(clientData.user, clientData.roomId).then((users, status) => {
+      console.log(users);
+      console.log(status);
+      // if (status) {
+      //   console.log(users);
+      //   socket.join(clientData.roomId);
+      //   socket.emit("join-room", users);
+      //   socket.to(clientData.roomId).emit("user-join", clientData.user);
+      // }
+    });
   });
 });
 

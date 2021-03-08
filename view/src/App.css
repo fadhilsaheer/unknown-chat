@@ -595,10 +595,12 @@ ul {
 
 
 .chat-message-robot{
-  display: flex;
-  justify-content: center;
-  background: #92a0fc;
-  border-radius: 10px;
+  max-width: 90%;
+}
+
+.chat-message-robot p{
+  background: var(--purple-1);
+  margin-left: 10px;
 }
 
 .chat-message p {
