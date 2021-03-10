@@ -555,8 +555,9 @@ ul {
 
 
 .chat-message-container {
-  height: 600px;
-  overflow-y: scroll;
+  padding: 5% 0;
+  overflow: auto;
+  height: 500px;
 }
 
 .chat-message {

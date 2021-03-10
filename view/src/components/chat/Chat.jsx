@@ -22,12 +22,6 @@ const Chat = ({ user, socket }) => {
     const [message, setMessage] = useState("");
     const [room, setRoom] = useState();
 
-    // const { data: room, isPending } = useFetch(`${constants.database}/rooms?id=${roomId}`)
-
-    socket.on("join-room", (users) => {
-        console.log(users);
-    });
-
     // functions
 
     // socket.emit("join-room", {roomId, user})
