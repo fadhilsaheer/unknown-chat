@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
+import axios from 'axios';
+
 import useFetch from '../../hooks/useFetch';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,29 +23,37 @@ const Chat = ({ user, socket }) => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [message, setMessage] = useState("");
     const [users, setUsers] = useState([]);
+    const [room, setroom] = useState();
 
-    const { data: room } = useFetch(`${constants.database}/rooms?id=${roomId}`)
+    // const { data: room, isPending } = useFetch(`${constants.database}/rooms?id=${roomId}`)
 
-
-    if (room && user) {
-        if (room.length === 0) {
-            location.push("/app")
-        }
-    }
-
-    socket.on("join-room", (users)=>{
+    socket.on("join-room", (users) => {
         console.log(users);
-    })
+    });
 
     // functions
 
+    // socket.emit("join-room", {roomId, user})
     const joinRoom = () => {
-        socket.emit("join-room", {user, roomId});
+        if(user.length != 0){
+            axios.get(`${constants.database}/rooms?id=${roomId}`).then((room)=>{
+                if(room.data.length != 0){
+                    setroom(room.data[0]);
+                    socket.emit("join-room", {roomId, user});
+                }else{
+                    location.push("/app")
+                }
+            })
+        }else{
+            location.push("/")
+        }
+
     }
 
     const roomHandler = () => {
         socket.on("join-room", roomUsers => {
             setUsers(roomUsers);
+            console.log(users);
         })
     }
 
