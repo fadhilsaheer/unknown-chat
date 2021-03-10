@@ -594,18 +594,9 @@ ul {
 }
 
 
-.chat-message-robot{
-  max-width: 90%;
-}
-
-.chat-message-robot p{
-  background: var(--purple-1);
-  margin-left: 10px;
-}
-
 .chat-message p {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--light);
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
 }

@@ -20,7 +20,6 @@ const Chat = ({ user, socket }) => {
 
     const [openDrawer, setOpenDrawer] = useState(false);
     const [message, setMessage] = useState("");
-    const [users, setUsers] = useState([]);
     const [room, setRoom] = useState();
 
     // const { data: room, isPending } = useFetch(`${constants.database}/rooms?id=${roomId}`)
@@ -46,6 +45,8 @@ const Chat = ({ user, socket }) => {
                     // }
                     // axios.post(`${constants.database}/users`, userData);
 
+                    socket.emit("join-room", {roomId, user, roomName: dbData.data[0].name});
+
                 } else {
                     location.push("/app")
                 }
@@ -54,7 +55,7 @@ const Chat = ({ user, socket }) => {
             location.push("/")
         }
 
-    }
+    };
 
 
     useEffect(joinRoom, [roomId]);

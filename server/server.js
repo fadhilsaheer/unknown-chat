@@ -19,8 +19,8 @@ io.on("connection", (socket) => {
 
   socket.on("join-room", ({ roomId, user, roomName }) => {
 
-    socket.emit("message", { user: bot, message: `Welcome ${user.name} to ${roomName} chat server 😊🎉`, type: "text" });
-    socket.broadcast.to(roomId).emit("message", { user: bot, message: `${user.name} has joined the gang 🥳` });
+    socket.emit("message", { user: bot, message: `Welcome ${user.name} to ${roomName} chat server 😊🎉`, type: "text", sender: 'user' });
+    socket.broadcast.to(roomId).emit("message", { user: bot, message: `${user.name} has joined the gang 🥳`, type: "text", sender: 'user' });
 
     socket.join(roomId);
 
