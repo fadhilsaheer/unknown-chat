@@ -1,67 +1,38 @@
 const users = [];
 
-module.exports = {
-  getRoomUsers: (roomId) => {
-    let roomUsers = [];
+function userJoin(userData, room){
+  let newUser = {
+    name: userData.name,
+    email: userData.email,
+    profile: userData.profile,
+    room: room,
+  }
 
-    roomUsers = users.filter((user) => {
-      return (user.room = roomId);
-    });
-    console.log("====================================");
-    console.log(roomUsers);
-    console.log("====================================");
+  let canPush = true;
+
+  users.map((user)=>{
+    console.log(`${user.email} : ${newUser.email}`);
+    if(user.email == newUser.email){
+      canPush = false;
+    }
+  })
+
+
+  if(canPush){
+    let roomUsers = getRoomUsers(room);
+    users.push(newUser);
     return roomUsers;
-  },
+  }else{
+    return false;
+  }
 
-  userDisconnect: (userData, roomId) => {
-    return new Promise((resolve, reject) => {
-      let currentUser = {
-        name: userData.name,
-        email: userData.email,
-        profile: userData.profile,
-        room: roomId,
-      };
+}
 
-      for (let index = 0; index != users.length; index++) {
-        if (users[index] == currentUser) {
-          users.splice(index, 1);
-          resolve();
-          break;
-        }
-      }
+function getRoomUsers(roomId){
+  return users.filter(user => user.room === roomId);
+}
 
-      reject();
-    });
-  },
-
-  joinRoom: (userData, roomId) => {
-    return new Promise(async(resolve, reject) => {
-      let newUser = {
-        name: userData.name,
-        email: userData.email,
-        profile: userData.profile,
-        room: roomId,
-      };
-
-      let canPush = true;
-
-      let index = 0;
-
-      while(index != users.length){
-          let user = users[index];
-          if(user == newUser){
-              canPush = false;
-          }
-
-          index++;
-      }
-
-      if(canPush){
-        users.push(newUser);
-      }
-
-      let roomUsers = await module.exports.getRoomUsers(roomId)
-      resolve(roomUsers, canPush);
-    });
-  },
-};
+module.exports = {
+  userJoin,
+  getRoomUsers
+}

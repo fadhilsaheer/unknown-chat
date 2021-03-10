@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
 import useFetch from '../../hooks/useFetch';
@@ -20,22 +20,35 @@ const Chat = ({ user, socket }) => {
 
     const [openDrawer, setOpenDrawer] = useState(false);
     const [message, setMessage] = useState("");
+    const [users, setUsers] = useState([]);
 
     const { data: room } = useFetch(`${constants.database}/rooms?id=${roomId}`)
 
 
-    if (room) {
+    if (room && user) {
         if (room.length === 0) {
             location.push("/app")
-        } else {
-            socket.emit("join-room", {roomId, user})
         }
     }
 
     socket.on("join-room", (users)=>{
-        console.log("users");
         console.log(users);
     })
+
+    // functions
+
+    const joinRoom = () => {
+        socket.emit("join-room", {user, roomId});
+    }
+
+    const roomHandler = () => {
+        socket.on("join-room", roomUsers => {
+            setUsers(roomUsers);
+        })
+    }
+
+    useEffect(joinRoom, [roomId]);
+    useEffect(roomHandler, []);
 
 
 
