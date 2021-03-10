@@ -3,8 +3,6 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 
-import useFetch from '../../hooks/useFetch';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,7 +21,7 @@ const Chat = ({ user, socket }) => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [message, setMessage] = useState("");
     const [users, setUsers] = useState([]);
-    const [room, setroom] = useState();
+    const [room, setRoom] = useState();
 
     // const { data: room, isPending } = useFetch(`${constants.database}/rooms?id=${roomId}`)
 
@@ -35,30 +33,31 @@ const Chat = ({ user, socket }) => {
 
     // socket.emit("join-room", {roomId, user})
     const joinRoom = () => {
-        if(user.length != 0){
-            axios.get(`${constants.database}/rooms?id=${roomId}`).then((room)=>{
-                if(room.data.length != 0){
-                    setroom(room.data[0]);
-                    socket.emit("join-room", {roomId, user});
-                }else{
+        if (user.length !== 0) {
+            axios.get(`${constants.database}/rooms?id=${roomId}`).then((dbData) => {
+                if (dbData.data.length !== 0) {
+                    setRoom(dbData.data[0])
+
+                    // let userData = {
+                    //     name: user.name,
+                    //     email: user.email,
+                    //     profile: user.profile,
+                    //     room: roomId,
+                    // }
+                    // axios.post(`${constants.database}/users`, userData);
+
+                } else {
                     location.push("/app")
                 }
             })
-        }else{
+        } else {
             location.push("/")
         }
 
     }
 
-    const roomHandler = () => {
-        socket.on("join-room", roomUsers => {
-            setUsers(roomUsers);
-            console.log(users);
-        })
-    }
 
     useEffect(joinRoom, [roomId]);
-    useEffect(roomHandler, []);
 
 
 

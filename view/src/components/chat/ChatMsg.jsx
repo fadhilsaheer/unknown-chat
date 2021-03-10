@@ -1,6 +1,6 @@
 const ChatMessage = ({ chat, user, type }) => {
 
-    let isNotRobot = type == "robot" ? false : true;
+    let isNotRobot = type === "robot" ? false : true;
 
     return (
         <div className={`chat-message chat-message-${type}`}>
