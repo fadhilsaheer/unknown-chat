@@ -25,21 +25,27 @@ const Chat = ({ user, socket }) => {
     // functions
 
     // socket.emit("join-room", {roomId, user})
-    const joinRoom = () => {
+    const handleRoom = () => {
         if (user.length !== 0) {
             axios.get(`${constants.database}/rooms?id=${roomId}`).then((dbData) => {
                 if (dbData.data.length !== 0) {
                     setRoom(dbData.data[0])
 
-                    // let userData = {
-                    //     name: user.name,
-                    //     email: user.email,
-                    //     profile: user.profile,
-                    //     room: roomId,
-                    // }
-                    // axios.post(`${constants.database}/users`, userData);
+                    socket.emit("join-room", { roomId, user, roomName: dbData.data[0].name }, (socketId) => {
+                        let userData = {
+                            name: user.name,
+                            email: user.email,
+                            profile: user.profile,
+                            room: roomId,
+                            socketId: socketId,
+                        }
+                        axios.post(`${constants.database}/users`, userData);
+                    });
 
-                    socket.emit("join-room", {roomId, user, roomName: dbData.data[0].name});
+                    return () => {
+                        socket.emit("disconnect");
+                        socket.off();
+                    }
 
                 } else {
                     location.push("/app")
@@ -52,7 +58,7 @@ const Chat = ({ user, socket }) => {
     };
 
 
-    useEffect(joinRoom, [roomId]);
+    useEffect(handleRoom, [roomId]);
 
 
 
@@ -65,7 +71,7 @@ const Chat = ({ user, socket }) => {
                     <div className="chat-navbar-icon">
                         <button onClick={() => setOpenDrawer(true)}><FontAwesomeIcon icon={faBars} /></button>
                     </div>
-                    <Buttons />
+                    <Buttons socket={socket} />
                 </div>
                 {!room && <Loader />}
                 {room && <div className="chat-container">

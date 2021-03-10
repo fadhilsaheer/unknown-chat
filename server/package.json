@@ -10,7 +10,9 @@
   "author": "fadhilsaheer",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.7.2",
     "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
     "socket.io": "^3.1.2",
     "uuid": "^8.3.2"
   }

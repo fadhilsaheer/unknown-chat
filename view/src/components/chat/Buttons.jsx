@@ -3,12 +3,17 @@ import { faLink, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import { useHistory } from 'react-router-dom';
 
-const Buttons = () => {
+const Buttons = ({ socket }) => {
     const Location = useHistory();
+
+    const handleDisconnect = () => {
+        socket.off();
+        Location.push("/app")
+    }
 
     return (
         <div className="chat-top-buttons">
-            <button onClick={()=> Location.push("/app")}><FontAwesomeIcon icon={faTimes} /></button>
+            <button onClick={handleDisconnect}><FontAwesomeIcon icon={faTimes} /></button>
             <button><FontAwesomeIcon icon={faLink} /></button>
         </div>
     );
