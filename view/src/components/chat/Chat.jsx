@@ -77,7 +77,7 @@ const Chat = ({ user, socket }) => {
                 {room && <div className="chat-container">
                     <h2 className="chat-room-name">{room.name}</h2>
                     <Chats socket={socket} room={room} />
-                    <ChatForm setMessage={setMessage} message={message} socket={socket} />
+                    <ChatForm user={user} roomId={roomId} setMessage={setMessage} message={message} socket={socket} />
                 </div>}
             </div>
         </div>

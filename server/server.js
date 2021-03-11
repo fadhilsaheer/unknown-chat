@@ -62,10 +62,10 @@ io.on("connection", (socket) => {
 
   // message system
 
-  socket.on("message", (message, user, roomId, type) => {
+  socket.on("message", ({message, user, roomId, type}) => {
 
-    io.to(roomId).emit('message', { user: user, message, type, sender: 'user' }); // sending to all room users
-    socket.emit('message', { message, type, sender: 'mine' }); // sending to sender
+    socket.broadcast.emit('message', { user: user, message, type, sender: 'user' }); // sending to all room users
+    socket.emit('message', { message, type, sender: 'mine', user }); // sending to sender
     
   })
 

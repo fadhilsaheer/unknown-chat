@@ -20,8 +20,8 @@ const Chats = ({ socket, room }) => {
 
     return (
         <ScrollToBottom className="chat-message-container">
-            {messages.map((message)=>(
-                <ChatMessage chat={message.message} user={message.user} type={message.type} sender={message.sender} />
+            {messages.map((message, index)=>(
+                <ChatMessage key={index} chat={message.message} user={message.user} type={message.type} sender={message.sender} />
             ))}
         </ScrollToBottom>
     );
