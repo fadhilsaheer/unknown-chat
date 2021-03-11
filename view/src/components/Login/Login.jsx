@@ -1,25 +1,28 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+
+import login from '../landing/login'; // login with google
 import swal from 'sweetalert';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
-import login from './login';
+const Login = ({ setUser, user }) => {
 
-import landingImage from '../../assets/home-chat.png';
-
-const Landing = ({ setUser }) => {
-
+    const { room } = useParams();
     const location = useHistory();
 
     const handleLogin = () => {
-        login().then((userData) => {
-            setUser(userData);
-            location.push("/app");
-        }).catch(() => {
+        login()
+        .then((user)=>{
+            setUser(user);
+            location.push(`/chat/${room}`)
+        })
+        .catch(()=>{
             swal("Login Failed !!", "failed to login from google account 😥", "error");
+            window.location.reload();
         })
     }
+
 
     return (
         <section className="landing">
@@ -29,10 +32,10 @@ const Landing = ({ setUser }) => {
                 <button className="btn" onClick={handleLogin}>Login With Google <FontAwesomeIcon icon={faGoogle} /> </button>
             </div>
             <div>
-                <img src={landingImage} alt="landing-page" />
+                {/* <img src={landingImage} alt="landing-page" /> */}
             </div>
         </section>
     );
 }
 
-export default Landing;
+export default Login;

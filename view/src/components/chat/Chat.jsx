@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, useLocation } from 'react-router-dom';
 
 import axios from 'axios';
+import swal from 'sweetalert';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +18,7 @@ import constants from '../../utils/consts';
 const Chat = ({ user, socket }) => {
     const { roomId } = useParams();
     const location = useHistory();
+    const path = useLocation();
 
     const [openDrawer, setOpenDrawer] = useState(false);
     const [message, setMessage] = useState("");
@@ -24,7 +26,6 @@ const Chat = ({ user, socket }) => {
 
     // functions
 
-    // socket.emit("join-room", {roomId, user})
     const handleRoom = () => {
         if (user.length !== 0) {
             axios.get(`${constants.database}/rooms?id=${roomId}`).then((dbData) => {
@@ -48,11 +49,12 @@ const Chat = ({ user, socket }) => {
                     }
 
                 } else {
+                    swal("No such room 🤷‍♂️", `couldn't find ${roomId} in our database`, "error")
                     location.push("/app")
                 }
             })
         } else {
-            location.push("/")
+            location.push(`/login/${roomId}`)
         }
 
     };

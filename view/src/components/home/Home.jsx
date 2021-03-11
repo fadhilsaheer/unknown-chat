@@ -12,13 +12,13 @@ const Home = ({ userData }) => {
     const location = useHistory();
 
     if (userData.length === 0) {
-        // location.push("/");
+        location.push("/");
         // sample profile data
-        userData = {
-            name: "john",
-            email: "john@gmail.com",
-            profile: "https://www.w3schools.com/w3images/streetart2.jpg",
-        }
+        // userData = {
+        //     name: "john",
+        //     email: "john@gmail.com",
+        //     profile: "https://www.w3schools.com/w3images/streetart2.jpg",
+        // }
     }
 
     const [openDrawer, setOpenDrawer] = useState(false);

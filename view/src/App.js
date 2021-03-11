@@ -10,16 +10,18 @@ import constants from './utils/consts';
 import Landing from "./components/landing/Landing";
 import Home from "./components/home/Home";
 import Chat from "./components/chat/Chat";
+import LoginPage from './components/Login/Login';
 
 function App() {
   var socket = io(constants.server, { transports: ["websocket"] });
+
   const [user, setUser] = useState([]);
 
-  let tempUser = {
-    name: "john",
-    email: "john@gmail.com",
-    profile: "https://www.w3schools.com/w3images/streetart2.jpg",
-  };
+  // let tempUser = {
+  //   name: "john",
+  //   email: "john@gmail.com",
+  //   profile: "https://www.w3schools.com/w3images/streetart2.jpg",
+  // };
 
   return (
     <Router>
@@ -29,6 +31,12 @@ function App() {
         {/* landing  */}
         <Route exact path="/">
           <Landing setUser={setUser} />
+        </Route>
+
+        {/* for login */}
+
+        <Route exact path="/login/:room">
+          <LoginPage user={user} setUser={setUser} />
         </Route>
 
         {/* home  */}
