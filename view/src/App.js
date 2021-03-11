@@ -17,11 +17,11 @@ function App() {
 
   const [user, setUser] = useState([]);
 
-  // let tempUser = {
-  //   name: "john",
-  //   email: "john@gmail.com",
-  //   profile: "https://www.w3schools.com/w3images/streetart2.jpg",
-  // };
+  let tempUser = {
+    name: "john",
+    email: "john@gmail.com",
+    profile: "https://www.w3schools.com/w3images/streetart2.jpg",
+  };
 
   return (
     <Router>
@@ -46,7 +46,7 @@ function App() {
 
         {/* chat */}
         <Route exact path="/chat/:roomId">
-          <Chat socket={socket} user={user} />
+          <Chat socket={socket} user={tempUser} />
         </Route>
 
       </Switch>

@@ -619,3 +619,13 @@ ul {
 .swal-image{
   width: 100%;
 }
+
+/* room users  */
+
+.room-users-container{
+  margin: 50px;
+}
+
+.room-users-container h2{
+  color: var(--purple-1);
+}

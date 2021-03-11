@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useHistory, useLocation } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -18,7 +18,6 @@ import constants from '../../utils/consts';
 const Chat = ({ user, socket }) => {
     const { roomId } = useParams();
     const location = useHistory();
-    const path = useLocation();
 
     const [openDrawer, setOpenDrawer] = useState(false);
     const [message, setMessage] = useState("");
@@ -73,7 +72,7 @@ const Chat = ({ user, socket }) => {
                     <div className="chat-navbar-icon">
                         <button onClick={() => setOpenDrawer(true)}><FontAwesomeIcon icon={faBars} /></button>
                     </div>
-                    <Buttons socket={socket} />
+                    <Buttons room={roomId} socket={socket} />
                 </div>
                 {!room && <Loader />}
                 {room && <div className="chat-container">
