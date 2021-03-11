@@ -14,19 +14,12 @@
   ],
   "users": [
     {
-      "name": "Public",
-      "email": "Public@Uchat",
-      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
-      "room": "public",
-      "id": 1
-    },
-    {
       "name": "fadhil developer",
       "email": "fadhilthedev@gmail.com",
       "profile": "https://lh5.googleusercontent.com/-gZBwwFFmAfw/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucngmKQYSPQP_MDhrqb8wwBJMRdkYw/s96-c/photo.jpg",
       "room": "public",
-      "socketId": "CjZkzO9oHc2xr9g7AAAZ",
-      "id": 2
+      "socketId": "lEw_QdhcB1fVDUv7AAAP",
+      "id": 1
     }
   ]
 }
