@@ -12,5 +12,14 @@
       }
     }
   ],
-  "users": []
+  "users": [
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "public",
+      "socketId": "OxRjKos-L7D-DHYpAAA7",
+      "id": 1
+    }
+  ]
 }

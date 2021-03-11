@@ -562,6 +562,7 @@ ul {
   padding: 5% 0;
   overflow: auto;
   height: 500px;
+  width: 100%;
 }
 
 .chat-message {
@@ -607,11 +608,14 @@ ul {
 }
 
 .chat-message-image{
-  height: 200px;
+  height: 100px;
   cursor: pointer;
   margin: 10px;
-  border: 1px solid var(--purple-1);
-  padding: 4px;
+  padding: 2px;
   background: var(--purple-1);
   border-radius: 10px;
+}
+
+.swal-image{
+  width: 100%;
 }
