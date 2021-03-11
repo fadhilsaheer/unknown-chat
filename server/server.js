@@ -60,6 +60,15 @@ io.on("connection", (socket) => {
     callback(socket.id);
   });
 
+  // message system
+
+  socket.on("message", (message, user, roomId, type) => {
+
+    io.to(roomId).emit('message', { user: user, message, type, sender: 'user' }); // sending to all room users
+    socket.emit('message', { message, type, sender: 'mine' }); // sending to sender
+    
+  })
+
 
   // on user disconnects
 
