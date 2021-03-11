@@ -1,9 +1,6 @@
 const express = require("express");
 const fetch = require("node-fetch");
 
-// const Bluebird = require('bluebird');
-// fetch.Promise = Bluebird;
-
 const { v4: uuid } = require("uuid");
 const { database } = require("./constants");
 
@@ -12,7 +9,6 @@ const app = express();
 const server = require("http").createServer(app);
 
 const socket = require("socket.io");
-const { resolve, reject } = require("bluebird");
 const io = socket(server);
 
 let bot = {
@@ -64,10 +60,17 @@ io.on("connection", (socket) => {
     callback(socket.id);
   });
 
-  socket.on("disconnect", () => {
-    let id = socket.id;
 
-    deleteUser(id).then((user) => {
+  // on user disconnects
+
+  socket.on("quit", () => {
+    deleteUser(socket.id).then((user) => {
+      io.to(user.room).emit('message', { user: bot, message: `${user.name} has left the gang 😥`, type: 'text', sender: 'user' });
+    });
+  })
+
+  socket.on("disconnect", () => {
+    deleteUser(socket.id).then((user) => {
       io.to(user.room).emit('message', { user: bot, message: `${user.name} has left the gang 😥`, type: 'text', sender: 'user' });
     });
   });

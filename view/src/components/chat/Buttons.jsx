@@ -7,6 +7,7 @@ const Buttons = ({ socket }) => {
     const Location = useHistory();
 
     const handleDisconnect = () => {
+        socket.emit("quit")
         socket.off();
         Location.push("/app")
     }
