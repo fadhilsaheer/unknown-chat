@@ -38,7 +38,7 @@ function App() {
 
         {/* chat */}
         <Route exact path="/chat/:roomId">
-          <Chat socket={socket} user={user} />
+          <Chat socket={socket} user={tempUser} />
         </Route>
 
       </Switch>

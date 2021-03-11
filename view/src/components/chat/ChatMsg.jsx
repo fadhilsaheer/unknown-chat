@@ -5,10 +5,13 @@ const ChatMessage = ({ chat, user, sender, type }) => {
     // mine is my message
     // change sender to mine || user
 
+    let isPlainText = type === 'text' ? true : false; // checking if message is text 
+
     return (
         <div className={`chat-message chat-message-${sender}`}>
-            <img src={user.profile} alt={user.name} />
-            <p>{chat}</p>
+            <img className="chat-message-profile" src={user.profile} alt={user.name} />
+            {isPlainText && <p>{chat}</p>}
+            {isPlainText === false && <img className="chat-message-image" src={chat} />}
         </div>
     );
 }
