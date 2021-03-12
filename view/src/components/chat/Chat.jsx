@@ -22,6 +22,7 @@ const Chat = ({ user, socket }) => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [message, setMessage] = useState("");
     const [room, setRoom] = useState();
+    const [admin, setAdmin] = useState(false);
 
     // functions
 
@@ -29,7 +30,12 @@ const Chat = ({ user, socket }) => {
         if (user.length !== 0) {
             axios.get(`${constants.database}/rooms?id=${roomId}`).then((dbData) => {
                 if (dbData.data.length !== 0) {
-                    setRoom(dbData.data[0])
+                    let currentRoom = dbData.data[0];
+                    setRoom(currentRoom);
+                    if(user.email === currentRoom.host.email){
+                        setAdmin(true);
+                    }
+
 
                     socket.emit("join-room", { roomId, user, roomName: dbData.data[0].name }, (socketId) => {
                         let userData = {
@@ -40,6 +46,8 @@ const Chat = ({ user, socket }) => {
                             socketId: socketId,
                         }
                         axios.post(`${constants.database}/users`, userData);
+
+
                     });
 
                     return () => {
@@ -72,7 +80,7 @@ const Chat = ({ user, socket }) => {
                     <div className="chat-navbar-icon">
                         <button onClick={() => setOpenDrawer(true)}><FontAwesomeIcon icon={faBars} /></button>
                     </div>
-                    <Buttons room={roomId} socket={socket} />
+                    <Buttons admin={admin} room={roomId} socket={socket} />
                 </div>
                 {!room && <Loader />}
                 {room && <div className="chat-container">
