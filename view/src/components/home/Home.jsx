@@ -5,6 +5,9 @@ import Buttons from './Buttons';
 // sections
 import AllChats from './allChats';
 import CreateRoom from '../room/CreateRoom';
+import Settings from '../pages/settings/Settings';
+import Profile from '../pages/profile/Profile';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -22,11 +25,13 @@ const Home = ({ userData, socket }) => {
     const components = {
         home: <AllChats />,
         create: <CreateRoom socket={socket} user={userData} />,
+        settings: <Settings />,
+        profile: <Profile />
     }
 
 
     if (userData.length === 0) {
-        location.push("/");
+        // location.push("/");
         // sample profile data
         userData = {
             name: "john",

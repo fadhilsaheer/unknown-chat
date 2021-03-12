@@ -12,14 +12,5 @@
       }
     }
   ],
-  "users": [
-    {
-      "name": "fadhil developer",
-      "email": "fadhilthedev@gmail.com",
-      "profile": "https://lh5.googleusercontent.com/-gZBwwFFmAfw/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucngmKQYSPQP_MDhrqb8wwBJMRdkYw/s96-c/photo.jpg",
-      "room": "public",
-      "socketId": "mXA_-dSlHD3jaAv6AAAt",
-      "id": 2
-    }
-  ]
+  "users": []
 }
