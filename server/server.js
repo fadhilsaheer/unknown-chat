@@ -58,6 +58,10 @@ io.on("connection", (socket) => {
     callback(socket.id);
   });
 
+  socket.on('delete-chat', () => {
+    socket.broadcast.emit('delete-chat');
+  })
+
   // message system
 
   socket.on("message", ({ message, user, roomId, type }) => {
@@ -69,6 +73,11 @@ io.on("connection", (socket) => {
     }); // sending to all room users
     socket.emit("message", { message, type, sender: "mine", user }); // sending to sender
   });
+
+  socket.on("clear-chat", (room) => {
+    io.to(room).emit('clear-chat')
+    io.to(room).emit('message', { message: `Host clear chatted message 🤐`, type: 'text', sender: 'user', user: bot });
+  })
 
   // create room
 

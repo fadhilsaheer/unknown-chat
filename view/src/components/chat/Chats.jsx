@@ -1,18 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
+
+import swal from 'sweetalert';
+import { useHistory } from 'react-router-dom';
 
 import ChatMessage from './ChatMsg';
 
 
-const Chats = ({ socket, room }) => {
-
-    const [messages, setMessages] = useState([]);
+const Chats = ({ socket, room, messages, setMessages }) => {
+    const location = useHistory();
 
     // messages
 
     const handleMessageSocketing = () => {
         socket.on("message", message => {
             setMessages([...messages, message]);
+        })
+
+        socket.on('clear-chat', () => {
+            setMessages([]);
+        })
+
+        socket.on('delete-chat', () => {
+            swal("You are out", 'host removed you from chat 😥', 'error').then(()=>{
+                location.push('/app');
+            })
         })
     };
 

@@ -20,7 +20,8 @@ const Chat = ({ user, socket }) => {
     const location = useHistory();
 
     const [openDrawer, setOpenDrawer] = useState(false);
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState(""); // for form
+    const [messages, setMessages] = useState([]); // chats
     const [room, setRoom] = useState();
     const [admin, setAdmin] = useState(false);
 
@@ -80,12 +81,12 @@ const Chat = ({ user, socket }) => {
                     <div className="chat-navbar-icon">
                         <button onClick={() => setOpenDrawer(true)}><FontAwesomeIcon icon={faBars} /></button>
                     </div>
-                    <Buttons admin={admin} room={roomId} socket={socket} />
+                    <Buttons admin={admin} room={roomId} socket={socket} setMessages={setMessages} />
                 </div>
                 {!room && <Loader />}
                 {room && <div className="chat-container">
                     <h2 className="chat-room-name">{room.name}</h2>
-                    <Chats socket={socket} room={room} />
+                    <Chats messages={messages} setMessages={setMessages} socket={socket} room={room} />
                     <ChatForm user={user} roomId={roomId} setMessage={setMessage} message={message} socket={socket} />
                 </div>}
             </div>
