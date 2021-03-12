@@ -1,8 +1,8 @@
 const express = require("express");
 const fetch = require("node-fetch");
 
-const { v4: uuid } = require("uuid");
 const { database } = require("./constants");
+const shortid = require("shortid");
 
 const app = express();
 
@@ -44,14 +44,12 @@ io.on("connection", (socket) => {
       type: "text",
       sender: "user",
     });
-    socket.broadcast
-      .to(roomId)
-      .emit("message", {
-        user: bot,
-        message: `${user.name} has joined the gang 🥳`,
-        type: "text",
-        sender: "user",
-      });
+    socket.broadcast.to(roomId).emit("message", {
+      user: bot,
+      message: `${user.name} has joined the gang 🥳`,
+      type: "text",
+      sender: "user",
+    });
 
     socket.join(roomId);
 
@@ -62,25 +60,43 @@ io.on("connection", (socket) => {
 
   // message system
 
-  socket.on("message", ({message, user, roomId, type}) => {
+  socket.on("message", ({ message, user, roomId, type }) => {
+    socket.broadcast.emit("message", {
+      user: user,
+      message,
+      type,
+      sender: "user",
+    }); // sending to all room users
+    socket.emit("message", { message, type, sender: "mine", user }); // sending to sender
+  });
 
-    socket.broadcast.emit('message', { user: user, message, type, sender: 'user' }); // sending to all room users
-    socket.emit('message', { message, type, sender: 'mine', user }); // sending to sender
-    
-  })
+  // create room
 
+  socket.on("create-room", (callback) => {
+    callback(shortid.generate());
+  });
 
   // on user disconnects
 
   socket.on("quit", () => {
     deleteUser(socket.id).then((user) => {
-      io.to(user.room).emit('message', { user: bot, message: `${user.name} has left the gang 😥`, type: 'text', sender: 'user' });
+      io.to(user.room).emit("message", {
+        user: bot,
+        message: `${user.name} has left the gang 😥`,
+        type: "text",
+        sender: "user",
+      });
     });
-  })
+  });
 
   socket.on("disconnect", () => {
     deleteUser(socket.id).then((user) => {
-      io.to(user.room).emit('message', { user: bot, message: `${user.name} has left the gang 😥`, type: 'text', sender: 'user' });
+      io.to(user.room).emit("message", {
+        user: bot,
+        message: `${user.name} has left the gang 😥`,
+        type: "text",
+        sender: "user",
+      });
     });
   });
 });
