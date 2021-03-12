@@ -10,17 +10,6 @@
         "email": "Public@Uchat",
         "profile": "https://www.w3schools.com/w3images/streetart2.jpg"
       }
-    },
-    {
-      "name": "developer",
-      "description": "my chat server 😊",
-      "public": true,
-      "id": "K-iPMkhRt",
-      "host": {
-        "name": "john",
-        "email": "john@gmail.com",
-        "profile": "https://www.w3schools.com/w3images/streetart2.jpg"
-      }
     }
   ],
   "users": [
