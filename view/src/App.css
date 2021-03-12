@@ -682,3 +682,17 @@ ul {
 .create-room-visibility button:hover {
   opacity: 0.8;
 }
+
+/* settings */
+.settings-control{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.settings-control h3{
+  color: var(--dark-3);
+  margin-top: 20px;
+  font-size: 16px;
+}

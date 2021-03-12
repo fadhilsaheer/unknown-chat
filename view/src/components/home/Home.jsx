@@ -41,12 +41,12 @@ const Home = ({ userData, socket }) => {
     }
 
     const [openDrawer, setOpenDrawer] = useState(false);
-    const [currentMainComponent, setCurrentMainComponent] = useState(<AllChats />)
+    const [currentMainComponent, setCurrentMainComponent] = useState(components.settings);
 
 
     return (
         <div className="home">
-            <Navbar user={userData} setOpenDrawer={setOpenDrawer} openDrawer={openDrawer} createButton={handleCreate} />
+            <Navbar user={userData} setOpenDrawer={setOpenDrawer} openDrawer={openDrawer} currentMainComponent={currentMainComponent} createButton={handleCreate} />
             <div className="home-app">
                 <div className="navbar-icon">
                     <button onClick={()=> setOpenDrawer(true)} ><FontAwesomeIcon icon={faBars} /></button>
