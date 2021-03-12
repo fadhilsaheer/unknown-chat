@@ -66,7 +66,7 @@ const Chat = ({ user, socket }) => {
 
     return (
         <div className="chat">
-            <Navbar hide openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} user={user} />
+            <Navbar hideButtons hide openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} user={user} />
             <div className="chat-app">
                 <div className="chat-top-icons">
                     <div className="chat-navbar-icon">

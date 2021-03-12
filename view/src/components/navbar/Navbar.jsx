@@ -6,10 +6,11 @@ import Buttons from './components/Buttons';
 
 import { Drawer } from '@material-ui/core';
 
-const Navbar = ({ user, openDrawer, setOpenDrawer, hide, createButton }) => {
+const Navbar = ({ user, openDrawer, setOpenDrawer, hide, createButton, hideButtons }) => {
 
 
     let navbarShow = hide ? false : true;
+    let showButtons = hideButtons ? false : true;
 
     return (
         <div className="navbar-container">
@@ -18,7 +19,7 @@ const Navbar = ({ user, openDrawer, setOpenDrawer, hide, createButton }) => {
                 <Logo />
                 <Menu />
                 <Profile user={user} />
-                <Buttons createButton={createButton} />
+                {showButtons && <Buttons createButton={createButton} />}
             </div>
             }
             <Drawer anchor="left" open={openDrawer} onClose={()=> setOpenDrawer(false)}>
@@ -26,7 +27,7 @@ const Navbar = ({ user, openDrawer, setOpenDrawer, hide, createButton }) => {
                     <Logo />
                     <Menu />
                     <Profile user={user} />
-                    <Buttons />
+                    {showButtons && <Buttons createButton={createButton} />}
                 </div>
             </Drawer>
         </div>

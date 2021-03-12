@@ -39,6 +39,14 @@
       "room": "iy0KvuOX4",
       "socketId": "Nbh1zvTEoRfHoN7iAAF3",
       "id": 2
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "iy0KvuOX4",
+      "socketId": "Nbh1zvTEoRfHoN7iAAF3",
+      "id": 3
     }
   ]
 }
