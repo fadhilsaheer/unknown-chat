@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import Navbar from '../navbar/Navbar';
 import Buttons from './Buttons';
@@ -15,6 +15,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Home = ({ userData, socket }) => {
     const location = useHistory();
+    const { card } = useParams();
 
     const components = {
         home: <AllChats />,
@@ -32,12 +33,12 @@ const Home = ({ userData, socket }) => {
     }
 
     const [openDrawer, setOpenDrawer] = useState(false);
-    const [currentMainComponent, setCurrentMainComponent] = useState(components.home)
+    const [currentMainComponent, setCurrentMainComponent] = useState(components[card ? card : 'home'])
 
 
     return (
         <div className="home">
-            <Navbar user={userData} setOpenDrawer={setOpenDrawer} openDrawer={openDrawer} />
+            <Navbar user={userData} setOpenDrawer={setOpenDrawer} openDrawer={openDrawer} createButton={()=> alert("hello")} />
             <div className="home-app">
                 <div className="navbar-icon">
                     <button onClick={()=> setOpenDrawer(true)} ><FontAwesomeIcon icon={faBars} /></button>

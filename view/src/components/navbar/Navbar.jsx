@@ -6,7 +6,7 @@ import Buttons from './components/Buttons';
 
 import { Drawer } from '@material-ui/core';
 
-const Navbar = ({ user, openDrawer, setOpenDrawer, hide }) => {
+const Navbar = ({ user, openDrawer, setOpenDrawer, hide, createButton }) => {
 
 
     let navbarShow = hide ? false : true;
@@ -18,7 +18,7 @@ const Navbar = ({ user, openDrawer, setOpenDrawer, hide }) => {
                 <Logo />
                 <Menu />
                 <Profile user={user} />
-                <Buttons />
+                <Buttons createButton={createButton} />
             </div>
             }
             <Drawer anchor="left" open={openDrawer} onClose={()=> setOpenDrawer(false)}>

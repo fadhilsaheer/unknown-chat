@@ -4,14 +4,14 @@ import { faPlus, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
 import joinRoom from '../../room/joinRoom';
 
-const Buttons = () => {
+const Buttons = ({ createButton  }) => {
     const location = useHistory();
 
     return (
         <div className="navbar-button">
             <div>
                 <center>
-                    <button><FontAwesomeIcon icon={faPlus} /> <span>Create</span></button>
+                    <button onClick={createButton}><FontAwesomeIcon icon={faPlus} /> <span>Create</span></button>
                 </center>
             </div>
             <div>
