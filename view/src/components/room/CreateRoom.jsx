@@ -1,12 +1,10 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 import { FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-
 import swal from 'sweetalert';
 import axios from 'axios';
-
 import constants from '../../utils/consts';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faDoorOpen, faLaughWink } from '@fortawesome/free-solid-svg-icons';
 
@@ -25,6 +23,8 @@ const CustomRadio = withStyles({
 
 
 const CreateRoom = ({ user, socket }) => {
+
+    const location = useHistory();
 
     const [roomName, setRoomName] = useState('');
     const [roomDescription, setRoomDescription] = useState('my chat server 😊');
@@ -45,7 +45,11 @@ const CreateRoom = ({ user, socket }) => {
                     id: roomId,
                     host: user,
                 }
-                axios.post(`${constants.database}/rooms`, data)
+                axios.post(`${constants.database}/rooms`, data).then(()=>{
+                    swal("Created Your Room 😇", `successfully created ${roomId} in database`, 'success').then(()=>{
+                        location.push(`/chat/${roomId}`)
+                    })
+                })
             })
         }else{
             swal('Failed To Submit 🥱', 'you need a valid room name', 'error');

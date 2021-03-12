@@ -6,14 +6,14 @@ import { faTimes, faPlus, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
 import joinRoom from '../room/joinRoom';
 
-const Buttons = ({ setCurrentMainComponent, components }) => {
+const Buttons = ({ showClose, handleCreate }) => {
     const location = useHistory();
-    const [showClose, setShowClose] = useState(false);
+    // const [showClose, setShowClose] = useState(false);
 
-    const handleCreate = () => {
-        setShowClose(!showClose);
-        setCurrentMainComponent(showClose ? components.home : components.create);
-    }
+    // const handleCreate = () => {
+    //     setShowClose(!showClose);
+    //     setCurrentMainComponent(showClose ? components.home : components.create);
+    // }
 
     return (
         <div className="top-buttons">

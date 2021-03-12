@@ -9,7 +9,6 @@ import constants from './utils/consts';
 
 import Landing from "./components/landing/Landing";
 import Home from "./components/home/Home";
-import Redirector from './components/home/Redirector';
 import Chat from "./components/chat/Chat";
 import LoginPage from './components/Login/Login';
 
@@ -41,8 +40,7 @@ function App() {
         </Route>
 
         {/* home  */}
-        <Route exact path='/app'><Redirector /></Route>
-        <Route exact path="/app/:card">
+        <Route exact path="/app">
           <Home userData={user} socket={socket} />
         </Route>
 

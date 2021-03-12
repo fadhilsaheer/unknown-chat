@@ -10,6 +10,17 @@
         "email": "Public@Uchat",
         "profile": "https://www.w3schools.com/w3images/streetart2.jpg"
       }
+    },
+    {
+      "name": "sample",
+      "description": "my chat server 😊",
+      "public": true,
+      "id": "iy0KvuOX4",
+      "host": {
+        "name": "fadhil developer",
+        "email": "fadhilthedev@gmail.com",
+        "profile": "https://lh5.googleusercontent.com/-gZBwwFFmAfw/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucngmKQYSPQP_MDhrqb8wwBJMRdkYw/s96-c/photo.jpg"
+      }
     }
   ],
   "users": [
@@ -20,6 +31,14 @@
       "room": "public",
       "socketId": "5xTrw6rVLvbGSV4fAAKz",
       "id": 1
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "profile": "https://www.w3schools.com/w3images/streetart2.jpg",
+      "room": "iy0KvuOX4",
+      "socketId": "Nbh1zvTEoRfHoN7iAAF3",
+      "id": 2
     }
   ]
 }
