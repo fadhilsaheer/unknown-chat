@@ -41,6 +41,11 @@ function App() {
         <Route exact path="/chat">
           <Chat socket={socket} user={user} />
         </Route>
+
+        {/* 404 */}
+        <Route>
+          <Landing setUser={setUser} />
+        </Route>
       </Switch>
     </Router>
   );
