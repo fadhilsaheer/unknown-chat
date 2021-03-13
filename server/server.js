@@ -13,7 +13,7 @@ const io = socket(server);
 
 let bot = {
   name: "UBot",
-  profile: "https://www.w3schools.com/w3images/streetart2.jpg",
+  profile: "bot",
 };
 
 function deleteUser(id) {
@@ -58,9 +58,9 @@ io.on("connection", (socket) => {
     callback(socket.id);
   });
 
-  socket.on('delete-chat', () => {
-    socket.broadcast.emit('delete-chat');
-  })
+  socket.on("delete-chat", () => {
+    socket.broadcast.emit("delete-chat");
+  });
 
   // message system
 
@@ -75,9 +75,14 @@ io.on("connection", (socket) => {
   });
 
   socket.on("clear-chat", (room) => {
-    io.to(room).emit('clear-chat')
-    io.to(room).emit('message', { message: `Host clear chatted message 🤐`, type: 'text', sender: 'user', user: bot });
-  })
+    io.to(room).emit("clear-chat");
+    io.to(room).emit("message", {
+      message: `Host clear chatted message 🤐`,
+      type: "text",
+      sender: "user",
+      user: bot,
+    });
+  });
 
   // create room
 

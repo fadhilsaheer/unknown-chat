@@ -1,4 +1,5 @@
 import swal from 'sweetalert';
+import botImage from './../../assets/logo.png';
 
 const ChatMessage = ({ chat, user, sender, type }) => {
 
@@ -8,7 +9,7 @@ const ChatMessage = ({ chat, user, sender, type }) => {
     // change sender to mine || user
 
     let isPlainText = type === 'text' ? true : false; // checking if message is text
-    
+
     const showPopup = (image) => {
         swal({
             content: {
@@ -18,9 +19,9 @@ const ChatMessage = ({ chat, user, sender, type }) => {
                     className: "swal-image"
                 }
             },
-            buttons: ["Close", {text: "Download"}]
-        }).then((canDownload)=>{
-            if(canDownload){
+            buttons: ["Close", { text: "Download" }]
+        }).then((canDownload) => {
+            if (canDownload) {
                 let downloadFileHelper = document.createElement("a");
                 downloadFileHelper.style.display = 'none';
                 downloadFileHelper.href = image;
@@ -35,11 +36,11 @@ const ChatMessage = ({ chat, user, sender, type }) => {
 
     return (
         <div className={`chat-message chat-message-${sender}`}>
-            <img className="chat-message-profile" src={user.profile} alt={user.name} />
+            <img className="chat-message-profile" src={user.profile == "bot" ? botImage : user.profile} alt={user.name} />
             {isPlainText && <p>{chat}</p>}
-            {isPlainText === false && <img onClick={()=> showPopup(chat)} className="chat-message-image" src={chat} alt={`sender by ${user.name}`} />}
+            {isPlainText === false && <img onClick={() => showPopup(chat)} className="chat-message-image" src={chat} alt={`sender by ${user.name}`} />}
         </div>
     );
 }
- 
+
 export default ChatMessage;
