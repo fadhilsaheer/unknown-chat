@@ -35,6 +35,7 @@ const Settings = ({ user, setUser }) => {
                 name: 'Unknown 🕵️‍♂️',
                 email: 'Unknown@Uchat',
                 profile: userProfile,
+                uid: currentUser.email,
             }
             setAnonymousUser(newUser);
             setUser(newUser);

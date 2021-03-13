@@ -33,7 +33,7 @@ const Chat = ({ user, socket }) => {
                 if (dbData.data.length !== 0) {
                     let currentRoom = dbData.data[0];
                     setRoom(currentRoom);
-                    if (user.email === currentRoom.host.email) {
+                    if (user.uid === currentRoom.host.uid) {
                         setAdmin(true);
                     }
 
