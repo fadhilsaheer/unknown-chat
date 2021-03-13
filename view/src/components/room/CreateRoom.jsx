@@ -12,13 +12,13 @@ import { faRocket, faDoorOpen, faLaughWink } from '@fortawesome/free-solid-svg-i
 
 const CustomRadio = withStyles({
     root: {
-      color: '#c49fff',
-      '&$checked': {
-        color: '#a974ff',
-      },
+        color: '#c49fff',
+        '&$checked': {
+            color: '#a974ff',
+        },
     },
     checked: {},
-  })((props) => <Radio color="default" {...props} />);
+})((props) => <Radio color="default" {...props} />);
 
 
 
@@ -36,8 +36,8 @@ const CreateRoom = ({ user, socket }) => {
     }
 
     const handleSubmit = () => {
-        if(roomName.trim().length !== 0){
-            socket.emit('create-room', (roomId)=>{
+        if (roomName.trim().length !== 0) {
+            socket.emit('create-room', (roomId) => {
                 let data = {
                     name: roomName,
                     description: roomDescription,
@@ -45,13 +45,13 @@ const CreateRoom = ({ user, socket }) => {
                     id: roomId,
                     host: user,
                 }
-                axios.post(`${constants.database}/rooms`, data).then(()=>{
-                    swal("Created Your Room 😇", `successfully created ${roomId} in database`, 'success').then(()=>{
-                        location.push(`/chat/${roomId}`)
+                axios.post(`${constants.database}/rooms`, data).then(() => {
+                    swal("Created Your Room 😇", `successfully created ${roomId} in database`, 'success').then(() => {
+                        location.push(`/chat?id=${roomId}`)
                     })
                 })
             })
-        }else{
+        } else {
             swal('Failed To Submit 🥱', 'you need a valid room name', 'error');
         }
     }
@@ -69,7 +69,7 @@ const CreateRoom = ({ user, socket }) => {
                 <h2>Make {roomName ? roomName : 'my room'} <FontAwesomeIcon icon={faDoorOpen} /> </h2>
 
                 <FormControl component="fieldset">
-                    <RadioGroup aria-label="visibility" name="visibility" value={visibility} onChange={(event)=> handleVisibility(event.target.value)}>
+                    <RadioGroup aria-label="visibility" name="visibility" value={visibility} onChange={(event) => handleVisibility(event.target.value)}>
                         <FormControlLabel value={true} control={<CustomRadio />} label="Public" />
                         <FormControlLabel value={false} control={<CustomRadio />} label="Private" />
                     </RadioGroup>

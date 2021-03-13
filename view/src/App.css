@@ -37,6 +37,10 @@ body {
   margin: 0;
 }
 
+button {
+  outline: none;
+}
+
 .hide {
   display: none;
 }

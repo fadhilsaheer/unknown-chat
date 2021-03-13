@@ -16,7 +16,7 @@ import ChatForm from './ChatForm';
 import constants from '../../utils/consts';
 
 const Chat = ({ user, socket }) => {
-    const { roomId } = useParams();
+    const roomId = new URLSearchParams(window.location.search).get("id");
     const location = useHistory();
 
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -62,7 +62,7 @@ const Chat = ({ user, socket }) => {
                 }
             })
         } else {
-            location.push(`/login/${roomId}`)
+            location.push(`/login?id=${roomId}`)
         }
 
     };

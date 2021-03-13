@@ -28,7 +28,7 @@ function App() {
 
         {/* for login */}
 
-        <Route exact path="/login/:room">
+        <Route exact path="/login">
           <LoginPage user={user} setUser={setUser} />
         </Route>
 
@@ -38,7 +38,7 @@ function App() {
         </Route>
 
         {/* chat */}
-        <Route exact path="/chat/:roomId">
+        <Route exact path="/chat">
           <Chat socket={socket} user={user} />
         </Route>
       </Switch>

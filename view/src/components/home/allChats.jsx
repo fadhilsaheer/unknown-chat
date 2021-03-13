@@ -14,7 +14,7 @@ const ChatContainer = ({ room }) => {
     return (
         <div>
             {isPending && <Loader />}
-            {users && <Link to={`/chat/${room.id}`}>
+            {users && <Link to={`/chat?id=${room.id}`}>
                 <div className="body-container-chat-container">
                     <h3>{room.name}</h3>
                     <h4>{room.description}</h4>

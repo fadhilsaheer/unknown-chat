@@ -8,19 +8,19 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 const Login = ({ setUser, user }) => {
 
-    const { room } = useParams();
+    const room = new URLSearchParams(window.location.search).get("id");
     const location = useHistory();
 
     const handleLogin = () => {
         login()
-        .then((user)=>{
-            setUser(user);
-            location.push(`/chat/${room}`)
-        })
-        .catch(()=>{
-            swal("Login Failed !!", "failed to login from google account 😥", "error");
-            window.location.reload();
-        })
+            .then((user) => {
+                setUser(user);
+                location.push(`/chat?id=${room}`)
+            })
+            .catch(() => {
+                swal("Login Failed !!", "failed to login from google account 😥", "error");
+                window.location.reload();
+            })
     }
 
 
