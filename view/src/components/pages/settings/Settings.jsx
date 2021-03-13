@@ -1,21 +1,14 @@
 import { useState } from 'react';
 
-import { FormControl, Checkbox, FormControlLabel } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { FormControl, FormControlLabel } from '@material-ui/core';
+import StyledCheckBox from './StyledCheckbox';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 
-const StyledCheckBox = withStyles({
-    root: {
-        '&$checked': {
-            color: '#a974ff',
-        },
-    },
-    checked: {},
-})((props) => <Checkbox color="default" {...props} />);
 
-const Settings = () => {
+
+const Settings = ({ user }) => {
     const [anonymousUser, setAnonymousUser] = useState(false);
 
     const handleAnonymous = () => {
@@ -25,6 +18,12 @@ const Settings = () => {
     return (
         <div className="body-container">
             <h2>Settings</h2>
+
+            <div className="settings-profile">
+                <img src={user.profile} alt={user.name} />
+                <h3>{user.name}</h3>
+                <h4>{user.email}</h4>
+            </div>
 
             <div className="settings-control">
                 <FormControl>

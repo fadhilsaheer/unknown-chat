@@ -25,13 +25,13 @@ const Home = ({ userData, socket }) => {
     const components = {
         home: <AllChats />,
         create: <CreateRoom socket={socket} user={userData} />,
-        settings: <Settings />,
+        settings: <Settings user={userData} />,
         profile: <Profile />
     }
 
 
     if (userData.length === 0) {
-        // location.push("/");
+        location.push("/");
         // sample profile data
         userData = {
             name: "john",
@@ -49,7 +49,7 @@ const Home = ({ userData, socket }) => {
             <Navbar user={userData} setOpenDrawer={setOpenDrawer} openDrawer={openDrawer} currentMainComponent={currentMainComponent} createButton={handleCreate} />
             <div className="home-app">
                 <div className="navbar-icon">
-                    <button onClick={()=> setOpenDrawer(true)} ><FontAwesomeIcon icon={faBars} /></button>
+                    <button onClick={() => setOpenDrawer(true)} ><FontAwesomeIcon icon={faBars} /></button>
                 </div>
                 <Buttons showClose={showClose} handleCreate={handleCreate} />
                 <div className="all-chats-container">
