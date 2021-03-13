@@ -48,6 +48,7 @@ const AllChats = () => {
                 {rooms.map((room) => (
                     <ChatContainer key={room.id} room={room} />
                 ))}
+                {rooms.length === 0 && <h2>no rooms yet create one !!</h2>}
             </div>}
         </div>
     );
