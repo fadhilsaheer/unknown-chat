@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import io from 'socket.io-client';
+import io from "socket.io-client";
 
 import "./App.css";
 
-import constants from './utils/consts';
+import constants from "./utils/consts";
 // components
 
 import Landing from "./components/landing/Landing";
 import Home from "./components/home/Home";
 import Chat from "./components/chat/Chat";
-import LoginPage from './components/Login/Login';
+import LoginPage from "./components/Login/Login";
 
 function App() {
   var socket = io(constants.server, { transports: ["websocket"] });
@@ -27,7 +27,6 @@ function App() {
     <Router>
       {/* landing page  */}
       <Switch>
-
         {/* landing  */}
         <Route exact path="/">
           <Landing setUser={setUser} />
@@ -41,14 +40,13 @@ function App() {
 
         {/* home  */}
         <Route exact path="/app">
-          <Home userData={user} socket={socket} />
+          <Home setUser={setUser} userData={user} socket={socket} />
         </Route>
 
         {/* chat */}
         <Route exact path="/chat/:roomId">
           <Chat socket={socket} user={user} />
         </Route>
-
       </Switch>
     </Router>
   );

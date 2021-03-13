@@ -8,8 +8,9 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 
 
 
-const Settings = ({ user }) => {
-    const [anonymousUser, setAnonymousUser] = useState(false);
+const Settings = ({ user, setUser }) => {
+    const [anonymousUser, setAnonymousUser] = useState(true);
+    const currentUser = user;
 
     const handleAnonymous = () => {
         setAnonymousUser(!anonymousUser);
@@ -21,8 +22,10 @@ const Settings = ({ user }) => {
 
             <div className="settings-profile">
                 <img src={user.profile} alt={user.name} />
-                <h3>{user.name}</h3>
-                <h4>{user.email}</h4>
+                <div>
+                    <h3>{user.name}</h3>
+                    <h4>{user.email}</h4>
+                </div>
             </div>
 
             <div className="settings-control">
@@ -34,6 +37,7 @@ const Settings = ({ user }) => {
                                 checkedIcon={
                                     <FontAwesomeIcon icon={faUserSecret} />
                                 }
+                                checked={anonymousUser}
                                 name="anonymous"
                                 onChange={handleAnonymous}
                             />
@@ -41,7 +45,7 @@ const Settings = ({ user }) => {
                     />
                 </FormControl>
 
-                <h3>Become Anonymous</h3>
+                <h3>{anonymousUser ? 'Lets go anonymous !!' : 'Become Anonymous'}</h3>
             </div>
 
 

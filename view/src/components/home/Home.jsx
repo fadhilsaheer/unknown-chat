@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 
-const Home = ({ userData, socket }) => {
+const Home = ({ userData, socket, setUser }) => {
     const location = useHistory();
 
     // create button states
@@ -25,7 +25,7 @@ const Home = ({ userData, socket }) => {
     const components = {
         home: <AllChats />,
         create: <CreateRoom socket={socket} user={userData} />,
-        settings: <Settings user={userData} />,
+        settings: <Settings setUser={setUser} user={userData} />,
         profile: <Profile />
     }
 
