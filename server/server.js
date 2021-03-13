@@ -24,11 +24,13 @@ function deleteUser(id) {
   return new Promise((resolve, reject) => {
     fetch(`${database}/users?socketId=${id}`).then((databaseData) => {
       databaseData.json().then((user) => {
-        fetch(`${database}/users/${user[0].id}`, {
-          method: "DELETE",
-        });
+        if (user) {
+          fetch(`${database}/users/${user[0].id}`, {
+            method: "DELETE",
+          });
 
-        resolve(user[0]); // to send all mates about user
+          resolve(user[0]); // to send all mates about user
+        }
       });
     });
   });
