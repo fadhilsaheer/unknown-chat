@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { FormControl, FormControlLabel, TextField, Button } from '@material-ui/core';
+import { FormControl, FormControlLabel } from '@material-ui/core';
 import StyledCheckBox from './StyledCheckbox';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserSecret, faCameraRetro } from '@fortawesome/free-solid-svg-icons';
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 
 import userProfile from '../../../assets/user.png'; // user avatar
 import swal from 'sweetalert';
@@ -47,6 +47,28 @@ const Settings = ({ user, setUser }) => {
         setAnonymousUserOption(!anonymousUserOption); // set opposite of anonymous user option
     }
 
+    const handleLogout = () => {
+        swal({
+            title: 'Are you sure ??',
+            text: "don't you want to chat 😅",
+            icon: 'error',
+            buttons: ['lets chat', 'forget me'],
+            dangerMode: true,
+        }).then((permission) => {
+            if (permission) {
+                swal({
+                    title: 'see you later 👋',
+                    text: 'its hard to forget some one😭',
+                    timer: 2000
+                }).then(() => {
+                    location.push("/")
+                })
+            } else {
+                swal("💗 Love you 💗", 'thanks for staying 😇, have some cake 🍰', 'success')
+            }
+        })
+    }
+
 
     return (
         <div className="body-container">
@@ -79,6 +101,11 @@ const Settings = ({ user, setUser }) => {
 
                 <h3>{anonymousUserOption ? 'Become Normal 🙆‍♂️' : 'Become Anonymous 🕵️‍♂️'}</h3>
             </div>
+            <br />
+            <br />
+
+            <button onClick={handleLogout} className="settings-btn">Logout 🤐</button>
+
 
         </div>
     );
