@@ -33,7 +33,7 @@ const Chat = ({ user, socket }) => {
                 if (dbData.data.length !== 0) {
                     let currentRoom = dbData.data[0];
                     setRoom(currentRoom);
-                    if(user.email === currentRoom.host.email){
+                    if (user.email === currentRoom.host.email) {
                         setAdmin(true);
                     }
 
@@ -68,7 +68,7 @@ const Chat = ({ user, socket }) => {
     };
 
 
-    useEffect(handleRoom, [roomId]);
+    useEffect(handleRoom, [roomId, location, user, socket]);
 
 
 

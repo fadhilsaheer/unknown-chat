@@ -12,7 +12,7 @@ const ChatForm = ({ setMessage, message, socket, user, roomId }) => {
             socket.emit('message', { message: imageMessage, user, roomId, type: 'image' });
             setImageMessage(null)
         }
-    }, [imageMessage])
+    }, [imageMessage, roomId, socket, user])
 
     const handleSend = () => {
         if (message.trim().length !== 0) {

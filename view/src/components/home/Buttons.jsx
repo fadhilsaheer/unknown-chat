@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPlus, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,9 +16,9 @@ const Buttons = ({ showClose, handleCreate }) => {
     return (
         <div className="top-buttons">
             <button onClick={handleCreate}><FontAwesomeIcon icon={showClose ? faTimes : faPlus} /></button>
-            <button onClick={()=> joinRoom(location)}><FontAwesomeIcon icon={faUserPlus} /></button>
+            <button onClick={() => joinRoom(location)}><FontAwesomeIcon icon={faUserPlus} /></button>
         </div>
     );
 }
- 
+
 export default Buttons;

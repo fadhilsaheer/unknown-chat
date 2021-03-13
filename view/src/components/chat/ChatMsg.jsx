@@ -36,7 +36,7 @@ const ChatMessage = ({ chat, user, sender, type }) => {
 
     return (
         <div className={`chat-message chat-message-${sender}`}>
-            <img className="chat-message-profile" src={user.profile == "bot" ? botImage : user.profile} alt={user.name} />
+            <img className="chat-message-profile" src={user.profile === "bot" ? botImage : user.profile} alt={user.name} />
             {isPlainText && <p>{chat}</p>}
             {isPlainText === false && <img onClick={() => showPopup(chat)} className="chat-message-image" src={chat} alt={`sender by ${user.name}`} />}
         </div>

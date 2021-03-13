@@ -22,21 +22,21 @@ const Chats = ({ socket, room, messages, setMessages }) => {
         })
 
         socket.on('delete-chat', () => {
-            swal("You are out", 'host removed you from chat 😥', 'error').then(()=>{
+            swal("You are out", 'host removed you from chat 😥', 'error').then(() => {
                 location.push('/app');
             })
         })
     };
 
-    useEffect(handleMessageSocketing, [messages]);
+    useEffect(handleMessageSocketing, [messages, location, setMessages, socket]);
 
     return (
         <ScrollToBottom className="chat-message-container">
-            {messages.map((message, index)=>(
+            {messages.map((message, index) => (
                 <ChatMessage key={index} chat={message.message} user={message.user} type={message.type} sender={message.sender} />
             ))}
         </ScrollToBottom>
     );
 }
- 
+
 export default Chats;
