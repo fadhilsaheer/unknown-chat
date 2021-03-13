@@ -706,6 +706,8 @@ ul {
 
 .settings-profile img {
   border-radius: 10px;
+  width: 96px;
+  height: 96px;
 }
 
 .settings-profile div {

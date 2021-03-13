@@ -6,14 +6,34 @@ import StyledCheckBox from './StyledCheckbox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 
-
+import userProfile from '../../../assets/user.png'; // user avatar
 
 const Settings = ({ user, setUser }) => {
-    const [anonymousUser, setAnonymousUser] = useState(true);
+    const [anonymousUserOption, setAnonymousUserOption] = useState(false);
+
     const currentUser = user;
+    const [anonymousUser, setAnonymousUser] = useState(currentUser);
 
     const handleAnonymous = () => {
-        setAnonymousUser(!anonymousUser);
+        setAnonymousUserOption(!anonymousUserOption);
+
+        if (anonymousUser === currentUser) {
+
+            setAnonymousUser({
+                name: 'Unknown 🕵️‍♂️',
+                email: 'Unknown@Uchat',
+                profile: userProfile,
+            })
+            setUser({
+                name: 'Unknown 🕵️‍♂️',
+                email: 'Unknown@Uchat',
+                profile: userProfile,
+            })
+
+        } else {
+            setAnonymousUser(currentUser);
+            setUser(currentUser);
+        }
     }
 
     return (
@@ -21,10 +41,10 @@ const Settings = ({ user, setUser }) => {
             <h2>Settings</h2>
 
             <div className="settings-profile">
-                <img src={user.profile} alt={user.name} />
+                <img src={anonymousUser.profile} alt={user.name} />
                 <div>
-                    <h3>{user.name}</h3>
-                    <h4>{user.email}</h4>
+                    <h3>{anonymousUser.name}</h3>
+                    <h4>{anonymousUser.email}</h4>
                 </div>
             </div>
 
@@ -37,7 +57,7 @@ const Settings = ({ user, setUser }) => {
                                 checkedIcon={
                                     <FontAwesomeIcon icon={faUserSecret} />
                                 }
-                                checked={anonymousUser}
+                                checked={anonymousUserOption}
                                 name="anonymous"
                                 onChange={handleAnonymous}
                             />
@@ -45,7 +65,7 @@ const Settings = ({ user, setUser }) => {
                     />
                 </FormControl>
 
-                <h3>{anonymousUser ? 'Lets go anonymous !!' : 'Become Anonymous'}</h3>
+                <h3>{anonymousUserOption ? 'Lets go anonymous !!' : 'Become Anonymous'}</h3>
             </div>
 
 
