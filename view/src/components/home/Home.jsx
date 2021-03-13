@@ -46,7 +46,7 @@ const Home = ({ userData, socket, setUser }) => {
 
     return (
         <div className="home">
-            <Navbar user={userData} setOpenDrawer={setOpenDrawer} openDrawer={openDrawer} currentMainComponent={currentMainComponent} createButton={handleCreate} />
+            <Navbar user={userData} setOpenDrawer={setOpenDrawer} openDrawer={openDrawer} currentMainComponent={currentMainComponent} createButton={handleCreate} current='settings' />
             <div className="home-app">
                 <div className="navbar-icon">
                     <button onClick={() => setOpenDrawer(true)} ><FontAwesomeIcon icon={faBars} /></button>
