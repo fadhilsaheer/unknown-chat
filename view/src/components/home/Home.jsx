@@ -26,7 +26,7 @@ const Home = ({ userData, socket, setUser }) => {
         home: <AllChats />,
         create: <CreateRoom socket={socket} user={userData} />,
         settings: <Settings setUser={setUser} user={userData} />,
-        profile: <Profile />
+        profile: <Profile user={userData} />
     }
 
 

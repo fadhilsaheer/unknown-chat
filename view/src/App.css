@@ -740,3 +740,24 @@ ul {
 .settings-btn {
   opacity: 0.8;
 }
+
+.profile-page {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+.profile-page img {
+  border-radius: 10px;
+  width: 96px;
+  height: 96px;
+}
+
+.profile-page div {
+  margin-left: 20px;
+}
+
+.profile-page h2 {
+  font-size: 18px;
+  color: var(--dark-4);
+}
