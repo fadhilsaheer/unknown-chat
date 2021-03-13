@@ -1,4 +1,4 @@
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import login from '../landing/login'; // login with google
 import swal from 'sweetalert';
