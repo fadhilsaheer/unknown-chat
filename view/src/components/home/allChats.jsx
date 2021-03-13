@@ -15,23 +15,23 @@ const ChatContainer = ({ room }) => {
         <div>
             {isPending && <Loader />}
             {users && <Link to={`/chat/${room.id}`}>
-            <div className="body-container-chat-container">
-                <h3>{room.name}</h3>
-                <h4>{room.description}</h4>
+                <div className="body-container-chat-container">
+                    <h3>{room.name}</h3>
+                    <h4>{room.description}</h4>
 
-                <div className="body-container-down">
-                    <div className="body-container-account">
-                        <img src={room.host.profile} alt={room.host.name} />
-                        <section>
-                            <h3>{room.host.name}</h3>
-                            <h4>{room.host.email}</h4>
-                        </section>
+                    <div className="body-container-down">
+                        <div className="body-container-account">
+                            <img src={room.host.profile} alt={room.host.name} />
+                            <section>
+                                <h3>{room.host.name}</h3>
+                                <h4>{room.host.email}</h4>
+                            </section>
+                        </div>
+
+                        <span><FontAwesomeIcon icon={faUser} /> {users.length}</span>
                     </div>
-
-                    <span><FontAwesomeIcon icon={faUser} /> {users.length}</span>
                 </div>
-            </div>
-        </Link>}
+            </Link>}
         </div>
     );
 }
@@ -45,7 +45,7 @@ const AllChats = () => {
             {isPending && <Loader />}
             {rooms && <div className="body-container">
                 <h2>Public Chats</h2>
-                {rooms.map((room)=>(
+                {rooms.map((room) => (
                     <ChatContainer key={room.id} room={room} />
                 ))}
             </div>}

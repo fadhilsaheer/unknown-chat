@@ -17,12 +17,6 @@ function App() {
 
   const [user, setUser] = useState([]);
 
-  let tempUser = {
-    name: "john",
-    email: "john@gmail.com",
-    profile: "https://www.w3schools.com/w3images/streetart2.jpg",
-  };
-
   return (
     <Router>
       {/* landing page  */}
