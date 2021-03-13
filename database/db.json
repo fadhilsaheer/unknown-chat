@@ -12,5 +12,14 @@
       }
     }
   ],
-  "users": []
+  "users": [
+    {
+      "name": "Iam Astra",
+      "email": "iamrootastra@gmail.com",
+      "profile": "https://lh3.googleusercontent.com/a-/AOh14GhKOpu01zHG9zKCMhapEngMoiq-7dhIU_0rgyXX=s96-c",
+      "room": "public",
+      "socketId": "bhsnpsE-maAtdqWUAANT",
+      "id": 1
+    }
+  ]
 }
