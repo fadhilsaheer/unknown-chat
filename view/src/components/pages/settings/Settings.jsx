@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { FormControl, FormControlLabel } from '@material-ui/core';
 import StyledCheckBox from './StyledCheckbox';
@@ -7,32 +8,40 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 
 import userProfile from '../../../assets/user.png'; // user avatar
+import swal from 'sweetalert';
 
 const Settings = ({ user, setUser }) => {
-    const [anonymousUserOption, setAnonymousUserOption] = useState(false);
+    const location = useHistory();
 
     const currentUser = user;
+    const [anonymousUserOption, setAnonymousUserOption] = useState(false);
     const [anonymousUser, setAnonymousUser] = useState(currentUser);
 
+    useEffect(() => {
+        if (user.profile === userProfile) {
+            swal('Sorry, You need to login', 'anonymous user option is in a buggy state 😥', 'error').then(() => {
+                location.push('/');
+            })
+        }
+    }, [location, setUser]);
+
+
     const handleAnonymous = () => {
-        setAnonymousUserOption(!anonymousUserOption);
+        setAnonymousUserOption(!anonymousUserOption); // set opposite of anonymous user option
 
-        if (anonymousUser === currentUser) {
+        if (anonymousUser === user) {
 
-            setAnonymousUser({
+            let newUser = {
                 name: 'Unknown 🕵️‍♂️',
                 email: 'Unknown@Uchat',
                 profile: userProfile,
-            })
-            setUser({
-                name: 'Unknown 🕵️‍♂️',
-                email: 'Unknown@Uchat',
-                profile: userProfile,
-            })
+            }
+            setAnonymousUser(newUser);
+            setUser(newUser);
 
         } else {
             setAnonymousUser(currentUser);
-            setUser(currentUser);
+            setUser(currentUser)
         }
     }
 
@@ -65,7 +74,7 @@ const Settings = ({ user, setUser }) => {
                     />
                 </FormControl>
 
-                <h3>{anonymousUserOption ? 'Lets go anonymous !!' : 'Become Anonymous'}</h3>
+                <h3>{anonymousUserOption ? 'Become Normal 🙆‍♂️' : 'Become Anonymous 🕵️‍♂️'}</h3>
             </div>
 
 
