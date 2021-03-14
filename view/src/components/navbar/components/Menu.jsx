@@ -3,7 +3,7 @@ import { faHome, faUser, faTools } from '@fortawesome/free-solid-svg-icons';
 
 import { useHistory } from 'react-router-dom';
 
-const Menu = ({ current, setCurrenComponentName, setCurrentMainComponent, components }) => {
+const Menu = ({ current, setCurrenComponentName, setCurrentMainComponent, components, handleDisconnect }) => {
 
     const location = useHistory();
 
@@ -16,6 +16,7 @@ const Menu = ({ current, setCurrenComponentName, setCurrentMainComponent, compon
             setCurrentMainComponent(components[place]);
             setCurrenComponentName(place)
         } else {
+            handleDisconnect();
             location.push("/app")
         }
     }

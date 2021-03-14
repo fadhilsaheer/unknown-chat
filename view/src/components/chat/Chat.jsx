@@ -27,6 +27,12 @@ const Chat = ({ user, socket }) => {
 
     // functions
 
+    const handleDisconnect = () => {
+        socket.emit("quit")
+        socket.off();
+        location.push("/app")
+    }
+
     const handleRoom = () => {
         if (user.length !== 0) {
             axios.get(`${constants.database}/rooms?id=${roomId}`).then((dbData) => {
@@ -75,7 +81,7 @@ const Chat = ({ user, socket }) => {
 
     return (
         <div className="chat">
-            <Navbar hideButtons hide openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} user={user} />
+            <Navbar hideButtons hide openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} user={user} handleDisconnect={handleDisconnect} />
             <div className="chat-app">
                 <div className="chat-top-icons">
                     <div className="chat-navbar-icon">
