@@ -1,9 +1,5 @@
 const express = require("express");
 
-
-const { database } = require("./constants");
-const shortid = require("shortid");
-
 const app = express();
 
 const server = require("http").createServer(app);
@@ -13,13 +9,8 @@ const io = socket(server);
 
 const socketHandler = require("./socket");
 
-
-
-
 io.on("connection", (socket) => {
-  
   socketHandler(socket, io);
-
 });
 
 const serverPort = process.env.PORT || 8080;
