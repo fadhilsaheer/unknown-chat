@@ -30,17 +30,8 @@ Unknown chat is a chat app where you can message your friends and family 😊
 
 <br>
 
-> 👨‍🦲 I have many apps for this. then why should is use Unknown Chat ?? 🙄
->
-> 👽 Are you serious man to use this as your daily app  🤷‍♂️
->
-> 👨‍🦲 Then why did you made this ??
->
-> 👽 This is my fun project to use what i learned 😊
->
-> 👨‍🦲 Ok then why should i use this ....
->
-> 👽 I will be considering to upgrade this 😄
+> once the wise man said 
+> `Use Unknown Chat You Will Understand Your Life Is Not Useless Than Unknown Chat 🤓`
 
 <br>
 
