@@ -1,26 +1,67 @@
 # Unknown Chat View 👀
 
-The art of presenting json in a pretty way 😁 But a project like <a href="https://unknown-chat.netlify.app">Unknown Chat</a> which is moon scalable 😅 frontend is not that way its do a ton of work under the hood 💪
+View is made using __REACT__ 😉
+
+__packages used__
+
+* React Router Dom
+* Firebase
+* Axios
+* Sweetalert
+* React-Scroll-To-Bottom
+* Socket.IO-Client
 
 
 
-### What does this do ??
+### Setup
 
-* Nothing !! 😅
-* Sign up with google 😉
-* Showing you all the rooms that are currently public 📢
-* Join you in a room 😁
-* You messages chat all the freaking stuff .....
+You need `NODE JS` & `NPM` for this
 
 
 
-Frontend is made using `react js` and used `firebase` for authentication
+1. Install dependencies by `npm install` or `yarn install`
+2. Run view by `npm start` or `yarn start`
+
+> run view only after running server and database ❗
 
 
 
-> once the wise man said " firebase and react is cool 👍 "
->
-> :- wise man 5050 
+**if you changed the port of server or database **
+
+Navigate to `view/src/utils/consts.js`
+
+```javascript
+const server = "you-server-url";
+const database = "your-database-url";
+```
 
 
+
+**The authentication is made possible by Firebase 🔥**
+
+Navigate to `view/src/utils`
+
+create a folder named `firebase` and inside that folder create a file named 
+
+`firebase.js`
+
+create a project in firebase and copy firebase config 🔗
+
+```javascript
+const firebaseConfig = {
+  // your firebase config 
+};
+
+export default firebaseConfig;
+```
+
+
+
+**change bot profile**
+
+Navigate to `view/src/components/chat/chatMsg.jsx`
+
+```javascript
+import botImage from 'your-image-path';
+```
 
