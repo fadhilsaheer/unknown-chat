@@ -27,7 +27,7 @@ you will be having two end points on server url
 
 `/rooms`
 
-because in `/database.db.json` 
+because in `/database/db.json` 
 
 ```json
 {
