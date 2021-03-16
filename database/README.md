@@ -1,23 +1,39 @@
 # Unknown Chat Database 📂
 
-Database is a main part for a app like <a href="https://unknown-chat.netlify.app/">Unknown Chat</a> which is scaling to moon 😅🚀🌙 
+I used **JSON SERVER** for database 💾 
 
-I used Json Server which is fake rest api 😉 . I known its not good for scaling 😅 but its good for moon 🌙 and entire solar system 🌍 
-
-
-
-### How this works ?? 
-
-Well you can ride up <a href="https://www.npmjs.com/package/json-server">documentation</a> for json server 🚴‍♂️ 
+read <a href="https://www.npmjs.com/package/json-server">Docs 📚</a> for understanding more about json server
 
 
 
-I have 2 objects in db.json
+### Setup
+
+You need **NODE JS** and **NPM** for this
+
+
+
+1. install dependencies by `npm install`
+2. run server by `node server.js`
+
+
+
+server will listen on port 8000
+
+http://localhost:8000 
+
+you will be having two end points on server url
+
+`/users` 
 
 `/rooms`
 
-`/users`
+because in `/database.db.json` 
 
+```json
+{
+  "rooms": [],
+  "users": []
+}
+```
 
-
-rooms will contains all room data 🚪 and users will contain,  you know !! 😁 
+like this you can add more endpoint too 😉
