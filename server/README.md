@@ -1,28 +1,40 @@
 # Unknown Chat Server 💾
 
-Server is most important thing for a <a href="https://unknown-chat.netlify.app/">moon scale project </a>😅 
-
-I used `NODE JS` for server 😉  and `socket io` for real time communication 😊
+I used  __NODE JS, HTTP, SOCKET IO__ for message signaling & __NODE FETCH__ for updating database and i used __SHORT ID__ for room producing random room id 😊 
 
 
 
-### What this server do ??
+### Setup
 
-* Handle user join and disconnect
-  - send message to other room users about user 👥
-  - send message to other room users when user disconnect 🤐
-  - delete user data from database 😉
-
-* Handle messaging
-  - send bot messages to all users 🤖
-  - send message to room users from a user 😎 
+You need `NODE JS` & `NPM` for this
 
 
 
-### Useful links 🔗
+1. Install dependencies by `npm install` or `yarn install`
+2. Run server by `node server.js`
 
-<a href="https://nodejs.org/en/">Node Js</a>
 
-<a href="https://socket.io/">Socket Io</a>
 
-<a href="https://unknown-chat.netlify.app">Unknown Chat</a>
+The server will listen on port 8080
+
+http://localhost:8080 
+
+
+
+if you changed the port of database 
+
+go to `server/constants.js`
+
+```javascript
+const database = 'you-database-url'; // http://localhost:8000
+```
+
+you can change the bot name by editing
+
+```javascript
+const bot = {
+    name: 'you-bot-name',
+    profile: 'bot',
+};
+```
+
