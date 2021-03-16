@@ -1,6 +1,6 @@
 # Unknown Chat Server 💾
 
-I used  __NODE JS, HTTP, SOCKET IO__ for message signaling & __NODE FETCH__ for updating database and i used __SHORT ID__ for room producing random room id 😊 
+I used  __NODE JS, HTTP, SOCKET IO__ for message signaling & __NODE FETCH__ for updating database and i used __SHORT ID__ for generating random room id 😊 
 
 
 
