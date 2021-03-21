@@ -12,12 +12,6 @@
 
 
 
-## This project is removed for updates 😅
-
-
-
-
-
 ## About
 
 Unknown Chat is a chat application based on rooms 😀 where user can create, delete, join and chat in a room 😉 
