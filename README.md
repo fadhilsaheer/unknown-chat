@@ -12,6 +12,12 @@
 
 
 
+## This project is removed for updates 😅
+
+
+
+
+
 ## About
 
 Unknown Chat is a chat application based on rooms 😀 where user can create, delete, join and chat in a room 😉 
@@ -54,25 +60,6 @@ You have many extra features to 😏
 
 > I will be upgrading this eventually 😉
 
-<br>
 
-## For Developers 👨‍💻
-
-Unknown chat is build using 👷‍♂️
-
-- React 🌟
-- Node Js 💻
-- Javascript 🤯
-- Firebase 😉
-- Json-Server 🦕
-- Socket Io 🚶‍♀️
-
-
-
->  For setup read documentations in each folders 📂
-
-
-
-<br>
 
 ### Contribute For More Updates 🤗
