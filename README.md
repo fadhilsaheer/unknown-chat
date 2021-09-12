@@ -8,10 +8,6 @@
 
 
 
-<a href="https://unknown-chat.netlify.app">Unknown Chat</a>
-
-
-
 ## About
 
 Unknown Chat is a chat application based on rooms 😀 where user can create, delete, join and chat in a room 😉 
@@ -22,7 +18,7 @@ Unknown Chat is a chat application based on rooms 😀 where user can create, de
 
 Unknown Chat is a web based app 📶 so no one need to install it 😇 <br>
 
-1. Go to https://unknown-chat.netlify.app 
+1. Go to `SITE IS NO LONGER AVAILABLE`
 2. Login with google 😉
 
 3. Create or Join a room 😁
